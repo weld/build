@@ -47,6 +47,21 @@
       </pluginRepository>
    </pluginRepositories>
    
+   <repositories>
+      <repository>
+         <id>oss.sonatype.org/jboss-snapshots</id>
+         <name>JBoss (Nexus) Snapshots Repository</name>
+         <url>http://oss.sonatype.org/content/repositories/jboss-snapshots</url>
+         <releases>
+            <enabled>false</enabled>
+         </releases>
+         <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+         </snapshots>
+      </repository>
+   </repositories>
+   
    <properties>
       <!-- Force encoding to UTF-8 (bug on OS X) -->
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,6 +100,7 @@
                <artifactId>maven-release-plugin</artifactId>
                <configuration>
                   <arguments>-Prelease</arguments>
+                  <autoVersionSubmodules>true</autoVersionSubmodules>
                </configuration>
                <version>2.0-beta-9</version>
             </plugin>
