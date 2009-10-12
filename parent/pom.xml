@@ -3,7 +3,7 @@
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
    <packaging>pom</packaging>
-   <version>2-SNAPSHOT</version>
+   <version>2</version>
 
    <name>Weld Parent</name>
 
@@ -45,7 +45,7 @@
          </snapshots>
       </pluginRepository>
    </pluginRepositories>
-   
+
    <repositories>
       <repository>
          <id>oss.sonatype.org/jboss-snapshots</id>
@@ -60,7 +60,7 @@
          </snapshots>
       </repository>
    </repositories>
-   
+
    <properties>
       <!-- Force encoding to UTF-8 (bug on OS X) -->
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -122,6 +122,11 @@
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-deploy-plugin</artifactId>
                <version>2.4</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-assembly-plugin</artifactId>
+               <version>2.2-beta-4</version>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -355,9 +360,9 @@
    <!-- SCM and Distribution Management -->
 
    <scm>
-      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk/parent</connection>
-      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk/parent</developerConnection>
-      <url>http://fisheye.jboss.org/browse/Weld/build/trunk/parent</url>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/tags/weld-parent-2</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/tags/weld-parent-2</developerConnection>
+      <url>http://fisheye.jboss.org/browse/Weld/build/tags/weld-parent-2</url>
    </scm>
 
    <distributionManagement>
