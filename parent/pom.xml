@@ -27,8 +27,25 @@
       <developer>
          <name>Weld committers</name>
       </developer>
-
    </developers>
+
+   <organization>
+      <name>Seam Framework</name>
+      <url>http://seamframework.org</url>
+   </organization>
+
+   <pluginRepositories>
+      <pluginRepository>
+         <id>twdata-m2-repository.googlecode.com</id>
+         <url>http://twdata-m2-repository.googlecode.com/svn</url>
+         <releases>
+            <enabled>true</enabled>
+         </releases>
+         <snapshots>
+            <enabled>false</enabled>
+         </snapshots>
+      </pluginRepository>
+   </pluginRepositories>
 
    <!-- Configure the build -->
    <build>
@@ -51,6 +68,8 @@
          </plugin>
       </plugins>
       <defaultGoal>package</defaultGoal>
+
+
 
       <!-- Configure all plugins, including versions to use in the build -->
       <pluginManagement>
@@ -243,10 +262,40 @@
                   <timestampFormat>{0, date, long} {0, time, long}</timestampFormat>
                </configuration>
             </plugin>
+            <plugin>
+               <groupId>org.twdata.maven</groupId>
+               <artifactId>maven-cli-plugin</artifactId>
+               <version>0.6.9</version>
+            </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>tomcat-maven-plugin</artifactId>
+               <version>1.0-beta-1</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>2.1-beta-1</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-ejb-plugin</artifactId>
+               <version>2.2</version>
+            </plugin>
+            <plugin>
+               <groupId>org.mortbay.jetty</groupId>
+               <artifactId>maven-jetty-plugin</artifactId>
+               <version>6.1.21</version>
+            </plugin>
+            <plugin>
+               <groupId>com.pyx4j</groupId>
+               <artifactId>maven-junction-plugin</artifactId>
+               <version>1.0.3</version>
+            </plugin>
          </plugins>
       </pluginManagement>
    </build>
-   
+
    <profiles>
       <!-- The release profile -->
       <profile>
@@ -273,15 +322,15 @@
          </build>
       </profile>
    </profiles>
-   
+
    <!-- SCM and Distribution Management -->
-   
+
    <scm>
       <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk</connection>
       <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk</developerConnection>
       <url>http://fisheye.jboss.org/browse/Weld/build/trunk</url>
    </scm>
-   
+
    <distributionManagement>
       <repository>
          <id>oss.sonatype.org/jboss-staging</id>
