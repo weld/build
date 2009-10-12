@@ -3,7 +3,7 @@
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
    <packaging>pom</packaging>
-   <version>2</version>
+   <version>3-SNAPSHOT</version>
 
    <name>Weld Parent</name>
 
@@ -360,9 +360,9 @@
    <!-- SCM and Distribution Management -->
 
    <scm>
-      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/tags/weld-parent-2</connection>
-      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/tags/weld-parent-2</developerConnection>
-      <url>http://fisheye.jboss.org/browse/Weld/build/tags/weld-parent-2</url>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk/parent</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk/parent</developerConnection>
+      <url>http://fisheye.jboss.org/browse/Weld/build/trunk/parent</url>
    </scm>
 
    <distributionManagement>
