@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
@@ -89,16 +90,83 @@
       </plugins>
       <defaultGoal>package</defaultGoal>
 
-
-
       <!-- Configure all plugins, including versions to use in the build -->
       <pluginManagement>
          <plugins>
             <plugin>
+               <groupId>org.jboss.maven.plugins</groupId>
+               <artifactId>maven-jdocbook-plugin</artifactId>
+               <version>2.2.0</version>
+               <extensions>true</extensions>
+               <dependencies>
+                  <dependency>
+                     <groupId>org.jboss.weld</groupId>
+                     <artifactId>weld-docbook-xslt</artifactId>
+                     <version>1.1.1-Beta3</version>
+                  </dependency>
+                  <dependency>
+                     <groupId>org.jboss.seam</groupId>
+                     <artifactId>seam-docbook-xslt</artifactId>
+                     <version>1.1.0.GA</version>
+                  </dependency>
+                  <dependency>
+                     <groupId>org.jboss.seam</groupId>
+                     <artifactId>seam-jdocbook-style</artifactId>
+                     <version>1.1.0.GA</version>
+                     <type>jdocbook-style</type>
+                  </dependency>
+                  <dependency>
+                     <groupId>org.jboss</groupId>
+                     <artifactId>jbossorg-jdocbook-style</artifactId>
+                     <version>1.1.0</version>
+                     <type>jdocbook-style</type>
+                  </dependency>
+               </dependencies>
+               <configuration>
+                  <sourceDirectory>${pom.basedir}</sourceDirectory>
+                  <sourceDocumentName>master.xml</sourceDocumentName>
+                  <masterTranslation>en-US</masterTranslation>
+                  <imageResource>
+                     <directory>${pom.basedir}/en-US</directory>
+                     <includes>
+                        <include>images/*.png</include>
+                     </includes>
+                  </imageResource>
+                  <formats>
+                     <format>
+                        <formatName>pdf</formatName>
+                        <stylesheetResource>classpath:/xslt/org/jboss/weld/pdf.xsl</stylesheetResource>
+                        <finalName>jsr299-tck-reference.pdf</finalName>
+                     </format>
+                     <format>
+                        <formatName>html</formatName>
+                        <stylesheetResource>classpath:/xslt/org/jboss/weld/xhtml.xsl</stylesheetResource>
+                        <finalName>index.html</finalName>
+                     </format>
+                     <format>
+                        <formatName>html_single</formatName>
+                        <stylesheetResource>classpath:/xslt/org/jboss/weld/xhtml-single.xsl</stylesheetResource>
+                        <finalName>index.html</finalName>
+                     </format>
+                  </formats>
+                  <options>
+                     <xincludeSupported>true</xincludeSupported>
+                     <xmlTransformerType>saxon</xmlTransformerType>
+                     <docbookVersion>1.72.0</docbookVersion>
+                     <localeSeparator>-</localeSeparator>
+                  </options>
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-antrun-plugin</artifactId>
+               <version>1.3</version>
+            </plugin>
+            <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-release-plugin</artifactId>
                <configuration>
-                  <arguments>-Prelease</arguments>
+                  <arguments>-Drelease </arguments>
                   <autoVersionSubmodules>true</autoVersionSubmodules>
                </configuration>
                <version>2.0-beta-9</version>
@@ -167,6 +235,11 @@
                <groupId>org.apache.felix</groupId>
                <artifactId>maven-bundle-plugin</artifactId>
                <version>2.0.0</version>
+            </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>exec-maven-plugin</artifactId>
+               <version>1.1.1</version>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -334,6 +407,11 @@
          <properties>
             <maven.repo.local>${java.io.tmpdir}/m2/release</maven.repo.local>
          </properties>
+         <activation>
+            <property>
+               <name>release</name>
+            </property>
+         </activation>
          <build>
             <plugins>
                <plugin>
