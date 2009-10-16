@@ -404,9 +404,6 @@
       <!-- The release profile -->
       <profile>
          <id>release</id>
-         <properties>
-            <maven.repo.local>${java.io.tmpdir}/m2/release</maven.repo.local>
-         </properties>
          <activation>
             <property>
                <name>release</name>
