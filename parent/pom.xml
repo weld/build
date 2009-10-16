@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
    <packaging>pom</packaging>
-   <version>3-SNAPSHOT</version>
+   <version>3</version>
 
    <name>Weld Parent</name>
 
@@ -435,9 +434,9 @@
    <!-- SCM and Distribution Management -->
 
    <scm>
-      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk/parent</connection>
-      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk/parent</developerConnection>
-      <url>http://fisheye.jboss.org/browse/Weld/build/trunk/parent</url>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/tags/weld-parent-3</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/tags/weld-parent-3</developerConnection>
+      <url>http://fisheye.jboss.org/browse/Weld/build/tags/weld-parent-3</url>
    </scm>
 
    <distributionManagement>
