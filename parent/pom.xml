@@ -44,6 +44,16 @@
             <enabled>false</enabled>
          </snapshots>
       </pluginRepository>
+      <pluginRepository>
+         <id>repository.jboss.org</id>
+         <url>http://repository.jboss.org/maven2</url>
+         <releases>
+            <enabled>true</enabled>
+         </releases>
+         <snapshots>
+            <enabled>false</enabled>
+         </snapshots>
+      </pluginRepository>
    </pluginRepositories>
 
    <repositories>
@@ -415,6 +425,7 @@
                   <artifactId>maven-gpg-plugin</artifactId>
                   <configuration>
                      <passphrase>${gpg.passphrase}</passphrase>
+                     <useAgent>${gpg.useAgent}</useAgent>
                   </configuration>
                   <executions>
                      <execution>
