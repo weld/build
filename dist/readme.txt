@@ -16,7 +16,14 @@
  System requirements
  ===================
 
- JDK 5.0 or above.
+ Weld 1.0 requires a Java EE 6 application server, a servlet container (using
+ the servlet extension) and Java SE (using the Java SE extension).
+ 
+ You must use JBoss AS 5.2.0.Beta1 (use nightly builds until released) or above
+ to deploy the provided examples out of the box. Other application servers may
+ be supported by the examples in the 1.0.0 release.
+
+ JDK 5.0 or JDK 6.0 is required for all Weld releases.
 
  Contents of distribution
  ========================
