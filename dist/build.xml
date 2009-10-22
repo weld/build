@@ -42,6 +42,7 @@
 			</fileset>
 			<fileset dir="${basedir}">
 				<include name="readme.txt" />
+				<include name="apl.txt" />
 			</fileset>
 		</copy>
 
