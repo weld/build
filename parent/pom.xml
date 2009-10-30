@@ -3,7 +3,7 @@
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
    <packaging>pom</packaging>
-   <version>4-SNAPSHOT</version>
+   <version>4</version>
 
    <name>Weld Parent</name>
 
@@ -102,6 +102,11 @@
       <!-- Configure all plugins, including versions to use in the build -->
       <pluginManagement>
          <plugins>
+            <plugin>
+               <groupId>ch.qos.cal10n.plugins</groupId>
+               <artifactId>maven-cal10n-plugin</artifactId>
+               <version>0.7</version>
+            </plugin>
             <plugin>
                <groupId>org.jboss.maven.plugins</groupId>
                <artifactId>maven-jdocbook-plugin</artifactId>
@@ -234,6 +239,9 @@
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-javadoc-plugin</artifactId>
                <version>2.4</version>
+               <configuration>
+                  <keywords>true</keywords>
+               </configuration>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -445,9 +453,9 @@
    <!-- SCM and Distribution Management -->
 
    <scm>
-      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk/parent</connection>
-      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk/parent</developerConnection>
-      <url>http://fisheye.jboss.org/browse/Weld/build/trunk/parent</url>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/tags/weld-parent-4</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/tags/weld-parent-4</developerConnection>
+      <url>http://fisheye.jboss.org/browse/Weld/build/tags/weld-parent-4</url>
    </scm>
 
    <distributionManagement>
