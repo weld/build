@@ -413,6 +413,15 @@
                <artifactId>maven-junction-plugin</artifactId>
                <version>1.0.3</version>
             </plugin>
+            <plugin>
+               <groupId>org.sonatype.plugins</groupId>
+               <artifactId>nexus-maven-plugin</artifactId>
+               <version>1.3.2</version>
+               <configuration>
+                  <nexusUrl>http://oss.sonatype.org/</nexusUrl>
+                  <serverAuthId>oss.sonatype.org/jboss-staging</serverAuthId>
+               </configuration>
+            </plugin>
          </plugins>
       </pluginManagement>
    </build>
