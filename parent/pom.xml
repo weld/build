@@ -464,6 +464,9 @@
                         <goals>
                            <goal>staging-close</goal>
                         </goals>
+                        <configuration>
+                           <auto>true</auto>
+                        </configuration>
                      </execution>
                   </executions>
                </plugin>
