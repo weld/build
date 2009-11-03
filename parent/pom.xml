@@ -457,18 +457,10 @@
                <plugin>
                   <groupId>org.sonatype.plugins</groupId>
                   <artifactId>nexus-maven-plugin</artifactId>
-                  <executions>
-                     <execution>
-                        <id>staging-close</id>
-                        <phase>deploy</phase>
-                        <goals>
-                           <goal>staging-close</goal>
-                        </goals>
-                        <configuration>
-                           <auto>true</auto>
-                        </configuration>
-                     </execution>
-                  </executions>
+                  <configuration>
+                     <auto>true</auto>
+                     <description>[nexus-maven-plugin] closing repository after release:perform</description>
+                  </configuration>
                </plugin>
             </plugins>
          </build>
