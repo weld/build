@@ -27,6 +27,12 @@
          <name>Weld committers</name>
       </developer>
    </developers>
+   
+   <properties>
+      <weld.docbook.version>1.1.1-Beta3</weld.docbook.version>
+      <seam.docbook.version>1.1.0.GA</seam.docbook.version>
+      <jbossorg.docbook.version>1.1.0</jbossorg.docbook.version>
+   </properties>
 
    <organization>
       <name>Seam Framework</name>
@@ -116,23 +122,23 @@
                   <dependency>
                      <groupId>org.jboss.weld</groupId>
                      <artifactId>weld-docbook-xslt</artifactId>
-                     <version>1.1.1-Beta3</version>
+                     <version>${weld.docbook.version}</version>
                   </dependency>
                   <dependency>
                      <groupId>org.jboss.seam</groupId>
                      <artifactId>seam-docbook-xslt</artifactId>
-                     <version>1.1.0.GA</version>
+                     <version>${seam.docbook.version}</version>
                   </dependency>
                   <dependency>
                      <groupId>org.jboss.seam</groupId>
                      <artifactId>seam-jdocbook-style</artifactId>
-                     <version>1.1.0.GA</version>
+                     <version>${seam.docbook.version}</version>
                      <type>jdocbook-style</type>
                   </dependency>
                   <dependency>
                      <groupId>org.jboss</groupId>
                      <artifactId>jbossorg-jdocbook-style</artifactId>
-                     <version>1.1.0</version>
+                     <version>${jbossorg.docbook.version}</version>
                      <type>jdocbook-style</type>
                   </dependency>
                </dependencies>
