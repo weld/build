@@ -31,6 +31,7 @@
          <useTransitiveDependencies>true</useTransitiveDependencies>
          <outputDirectory>artifacts</outputDirectory>
          <useProjectArtifact>false</useProjectArtifact>
+         <outputFileNameMapping>${artifact.artifactId}-${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
       </dependencySet>
       <dependencySet>
          <excludes>
@@ -42,6 +43,7 @@
          <useTransitiveDependencies>true</useTransitiveDependencies>
          <outputDirectory>lib</outputDirectory>
          <useProjectArtifact>false</useProjectArtifact>
+         <outputFileNameMapping>${artifact.artifactId}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
       </dependencySet>
       <dependencySet>
          <includes>

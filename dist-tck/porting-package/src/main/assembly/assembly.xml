@@ -22,6 +22,7 @@
          <useTransitiveDependencies>true</useTransitiveDependencies>
          <outputDirectory>/porting-package-lib</outputDirectory>
          <useProjectArtifact>false</useProjectArtifact>
+         <outputFileNameMapping>${artifact.artifactId}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
       </dependencySet>
    </dependencySets>
 
