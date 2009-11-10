@@ -14,7 +14,7 @@ http://seamframework.org/Weld/WeldDevelopmentOverview
 This distribution consists of:
 
 artifacts/
-   -- TCK binaries, sources, javadoc, packaged as jars
+   -- TCK binaries, sources, packaged as jars
    -- specification audit (source and report)
    -- TestNG suite.xml file for running the TCK
 
@@ -34,6 +34,6 @@ weld/
    jboss-tck-runner/
       -- maven based TCK runner for JBoss AS
 
-   lib/
+   porting-package-lib/
       -- all libraries for the Weld implementation of the CDI porting package
    
