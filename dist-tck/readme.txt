@@ -26,6 +26,7 @@ lib/
 
 weld/
    -- TCK runner for using Weld (the CDI RI) with JBoss AS
+      Maven 2.0.10 is required to use the TCK runner
 
    jboss-as/
       -- configuration for running the TCK with JBoss AS
