@@ -114,7 +114,7 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <configuration>
                <descriptors>
-                  <descriptor>src/main/assembly/assembly.xml</descriptor>
+                  <descriptor>assembly.xml</descriptor>
                </descriptors>
                <finalName>jsr299-tck-${cdi.tck.version}</finalName>
             </configuration>
