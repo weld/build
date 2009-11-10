@@ -1,5 +1,5 @@
 
-                                      Weld
+                 JSR-299: Contexts and Dependency Injection RI
 
  What is it?
  ============
@@ -11,49 +11,16 @@
  Status
  =======
 
- This is a preproduction release of Weld.
-
- System requirements
- ===================
-
- Weld examples require either a Java EE 6 application server, a Java EE 5
- application server retrofitted to include CDI support, a servlet container
- (using the Weld servlet extension) and Java SE (using the Weld Java SE
- extension). In fact, through extensions, Weld can accomodate any Java
- environment.
- 
- Currently, you must use JBoss AS 5.2.0.Beta1 (use nightly builds until
- released) or above deploy the provided examples out of the box. Marked
- examples, which do not include EJB session beans, can also be deployed to
- Apache Tomcat 6 or Jetty 6. Other application servers may be supported by
- the examples in the 1.0.0 release.
-
- JDK 5.0 or JDK 6.0 is required for all Weld releases.
+ This is a production release of Weld.
 
  Contents of distribution
  ========================
-
- doc/
-
-    API Docs and reference guide. Open doc/en-US/html/index.html in your
-    browser for instructions on how to get started using Weld and the
-    facilities offered by JSR-299. 
-   
- examples/
-
-    The Weld examples, the examples are described in more detail in the 
-    reference guide 
-     
- jboss-as/
-
-    Installer for JBoss AS, change into this directory, and run ant update
-    There are more details in the reference guide
   
  lib/
 
-    Libraries,  for building the examples
+    Weld dependencies
      
- lib/weld
+ artifacts/
 
     Weld binary, source and javadoc jars
 
@@ -71,6 +38,4 @@
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
  Source Code:     http://anonsvn.jboss.org/repos/weld
  Issue Tracking:  https://jira.jboss.org/jira/browse/WELD (core)
-                  https://jira.jboss.org/jira/browse/WELDX (extensions)
-                  https://jira.jboss.org/jira/browse/WELDINT (JBoss AS integration)
 
