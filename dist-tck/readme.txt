@@ -36,9 +36,3 @@ weld/
    lib/
       -- all libraries for the Weld implementation of the CDI porting package
    
-
-Generating the TCK audit coverage report
-----------------------------------------
-Run the following command to generate the TCK audit report:
-
-  mvn clean install -Dtck-audit
