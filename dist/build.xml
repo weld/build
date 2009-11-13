@@ -1,38 +1,40 @@
 <?xml version="1.0"?>
 <project name="DistributionBuilder" default="dist" basedir="." xmlns:artifact="urn:maven-artifact-ant">
 
-	<property name="weld.dir" location="${ant.file.DistributionBuilder}/../../" />
+	<property name="parent.dir" location="${ant.file.DistributionBuilder}/../../" />
 
-	<path id="maven-ant-tasks.classpath" path="${weld.dir}/lib/maven-ant-tasks.jar" />
+	<path id="maven-ant-tasks.classpath" path="${parent.dir}/lib/maven-ant-tasks.jar" />
 	<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant" classpathref="maven-ant-tasks.classpath" />
 
 	<property file="versions.properties" />
 
-	<property name="maven.dir" location="${weld.dir}/lib/maven" />
+	<property name="maven.dir" location="${parent.dir}/lib/maven" />
 
-	<property name="dist.dir" value="${weld.dir}/dist/weld-${weld.version}" />
+	<property name="dist.dir" value="${basedir}/weld-${weld.version}" />
 	<property name="dist.wb.lib.dir" value="${dist.dir}/lib/weld" />
 	<property name="dist.doc.dir" value="${dist.dir}/doc" />
 	<property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs" />
+	
+	<target name="setup">
+		<fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
+		<fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
+      <maven target="clean" basedir="${examples.dir}" />
+      <delete dir="${weld.dir}/jboss-as/target" />
+      <delete dir="${dist.dir}" failonerror="false" />
+      <mkdir dir="${dist.dir}" />
+	</target>
 
-	<target name="dist" description="Build the distribution">
+	<target name="dist" description="Build the distribution" depends="setup, docs">
 
 		<fail unless="weld.version" message="You must specify the weld.version as a property" />
-		<fail unless="jsr299.version" message="You must specify the jsr299.version as a property" />
+		<fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
 		<fail unless="weld.servlet.version" message="You must specify the weld.servlet.version as a property" />
 		<fail unless="weld.se.version" message="You must specify the weld.se.version as a property" />
 		<fail unless="weld.wicket.version" message="You must specify the weld.wicket.version as a property" />
 		<fail unless="weld.logger.version" message="You must specify the weld.logger.version as a property" />
-		<fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples/examples" />
+      <fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
+		<fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
 
-		<maven target="clean" basedir="${weld.dir}" />
-		<maven target="clean" basedir="${refdoc.dir}" />
-		<maven target="clean" basedir="${examples.dir}" />
-		<delete dir="${weld.dir}/jboss-as/target" />
-		<delete dir="${weld.dir}/impl/test-output" />
-		<delete dir="${weld.dir}/impl/ObjectStore" />
-		<delete dir="${dist.dir}" failonerror="false" />
-		<mkdir dir="${dist.dir}" />
 
 		<copy todir="${dist.dir}">
 			<fileset dir="${weld.dir}">
@@ -52,9 +54,9 @@
 		</copy>
 
 		<artifact:dependencies filesetId="weld.fileset" versionsId="weld.versions" sourcesfilesetid="weld.sources.fileset" javadocfilesetid="weld.javadocs.fileset">
-			<dependency groupId="org.jboss.weld" artifactId="jsr299-api" version="${jsr299.version}" />
+			<dependency groupId="javax.enterprise" artifactId="cdi-api" version="${weld.api.version}" />
 			<dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
-			<dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.version}" />
+			<dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.api.version}" />
 			<dependency groupId="org.jboss.weld" artifactId="weld-logger" version="${weld.logger.version}" />
 			<dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.wicket.version}" />
 			<dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
@@ -79,7 +81,7 @@
 		<mkdir dir="${dist.apidocs.dir}" />
 		<unzip dest="${dist.apidocs.dir}">
 			<fileset dir="target">
-				<include name="jsr299-api-javadoc.jar" />
+				<include name="cdi-api-javadoc.jar" />
 				<include name="weld-api-javadoc.jar" />
 			</fileset>
 		</unzip>
@@ -95,7 +97,7 @@
 		<delete dir="target" failonerror="false" />
 
 		<zip destfile="weld-${weld.version}.zip">
-			<fileset dir="${weld.dir}/dist">
+			<fileset dir="${basedir}">
 				<include name="weld-${weld.version}/**" />
 			</fileset>
 		</zip>
@@ -115,6 +117,7 @@
 
 	<target name="docs">
 		<fail unless="refdoc.dir" message="You must specify the reference docs directory with -Drefdoc.dir=~/workspace/wb/reference" />
+      <maven target="clean" basedir="${refdoc.dir}" />
 		<maven target="jdocbook:translate compile" basedir="${refdoc.dir}" />
 		<mkdir dir="${dist.doc.dir}" />
 		<copy todir="${dist.doc.dir}">
