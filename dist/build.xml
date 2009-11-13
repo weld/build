@@ -10,8 +10,10 @@
 
    <property name="maven.dir" location="${parent.dir}/lib/maven" />
 
-   <property name="dist.dir" value="${basedir}/weld-${weld.version}" />
-   <property name="dist.wb.lib.dir" value="${dist.dir}/lib/weld" />
+   <property name="final.name" value="weld-${weld.version}" />
+   <property name="dist.dir" value="${basedir}/${final.name}" />
+   <property name="dist.weld.lib.dir" value="${dist.dir}/artifacts/weld" />
+   <property name="dist.cdi.lib.dir" value="${dist.dir}/artifacts/cdi" />
    <property name="dist.doc.dir" value="${dist.dir}/doc" />
    <property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs" />
 
@@ -28,10 +30,7 @@
 
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
       <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
-      <fail unless="weld.servlet.version" message="You must specify the weld.servlet.version as a property" />
-      <fail unless="weld.se.version" message="You must specify the weld.se.version as a property" />
-      <fail unless="weld.wicket.version" message="You must specify the weld.wicket.version as a property" />
-      <fail unless="weld.logger.version" message="You must specify the weld.logger.version as a property" />
+      <fail unless="weld.extensions.version" message="You must specify the weld.extensions.version as a property" />
       <fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
       <fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
 
@@ -57,12 +56,12 @@
          <dependency groupId="javax.enterprise" artifactId="cdi-api" version="${weld.api.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.api.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-logger" version="${weld.logger.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.wicket.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.servlet.version}" />
+         <dependency groupId="org.jboss.weld" artifactId="weld-logger" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.extensions.version}" />
          <remoteRepository id="repository.jboss.org" url="http://repository.jboss.org/maven2" />
       </artifact:dependencies>
 
@@ -82,23 +81,30 @@
       <unzip dest="${dist.apidocs.dir}">
          <fileset dir="target">
             <include name="cdi-api-javadoc.jar" />
-            <include name="weld-api-javadoc.jar" />
          </fileset>
       </unzip>
 
-      <mkdir dir="${dist.wb.lib.dir}" />
+      <mkdir dir="${dist.weld.lib.dir}" />
 
-      <copy todir="${dist.wb.lib.dir}">
+      <copy todir="${dist.weld.lib.dir}">
          <fileset dir="target">
             <include name="weld-*.jar" />
-            <include name="jsr299-api*.jar" />
          </fileset>
       </copy>
+      
+      <mkdir dir="${dist.cdi.lib.dir}" />
+
+      <copy todir="${dist.cdi.lib.dir}">
+         <fileset dir="target">
+            <include name="cdi-api*.jar" />
+         </fileset>
+      </copy>
+      
       <delete dir="target" failonerror="false" />
 
-      <zip destfile="weld-${weld.version}.zip">
+      <zip destfile="${final.name}.zip">
          <fileset dir="${basedir}">
-            <include name="weld-${weld.version}/**" />
+            <include name="${final.name}/**" />
          </fileset>
       </zip>
    </target>

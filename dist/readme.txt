@@ -53,9 +53,13 @@
 
     Libraries,  for building the examples
      
- lib/weld
+ artifacts/weld
 
     Weld binary, source and javadoc jars
+
+ artifacts/cdi
+   
+    CDI API binary, source and javadoc jars
 
  Licensing
  =========
