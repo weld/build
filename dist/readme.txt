@@ -6,7 +6,7 @@
 
  Weld is the reference implementation of JSR-299: Java Contents and Dependency
  Injection for the Java EE platform (CDI). JSR-299 is the new Java standard for
- dependency injection and contextual life cycle management.
+ dependency injection and contextual lifecycle management.
 
  Status
  =======
