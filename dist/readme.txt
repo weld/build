@@ -11,7 +11,7 @@
  Status
  =======
 
- This is a preproduction release of Weld.
+ This is feature complete release of the CDI specification.
 
  System requirements
  ===================
