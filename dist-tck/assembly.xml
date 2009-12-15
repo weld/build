@@ -59,6 +59,11 @@
             <include>org.jboss.jsr299.tck:jsr299-tck-reference-guide</include>
          </includes>
          <unpack>true</unpack>
+         <unpackOptions>
+            <excludes>
+               <exclude>META-INF/</exclude>
+            </excludes>
+         </unpackOptions>
          <outputDirectory>doc</outputDirectory>
          <useProjectArtifact>false</useProjectArtifact>
       </dependencySet>
