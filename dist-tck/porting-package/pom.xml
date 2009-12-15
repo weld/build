@@ -32,6 +32,32 @@
          <scope>compile</scope>
          <type>test-jar</type>
       </dependency>
+      <dependency>
+         <groupId>org.jboss.weld</groupId>
+         <artifactId>weld-jboss-tck-runner</artifactId>
+         <version>${weld.version}</version>
+         <optional>true</optional>
+         <scope>compile</scope>
+         <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.weld</groupId>
+         <artifactId>weld-inject-tck-runner</artifactId>
+         <version>${weld.version}</version>
+         <optional>true</optional>
+         <scope>compile</scope>
+         <type>test-jar</type>
+         <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.weld</groupId>
+         <artifactId>weld-porting-package</artifactId>
+         <version>${weld.version}</version>
+         <optional>true</optional>
+         <scope>compile</scope>
+         <type>test-jar</type>
+         <classifier>sources</classifier>
+      </dependency>
    </dependencies>
 
    <build>
