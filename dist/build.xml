@@ -106,14 +106,15 @@
       </zip>
    </target>
 
-   <target name="deploy-dist" depends="dist">
-      <maven target="deploy:deploy-file" basedir="${weld.dir}">
+   <target name="deploy-dist">
+      <fail unless="weld.version" message="You must specify the weld.version as a property" />
+      <maven target="deploy:deploy-file" basedir="${basedir}">
          <arg line="-DpomFile=${basedir}/pom.xml" />
          <arg line="-Dpackaging=zip" />
          <arg line="-Dversion=${weld.version}" />
          <arg line="-Dfile=${basedir}/weld-${weld.version}.zip" />
-         <arg line="-Durl=dav:https://snapshots.jboss.org/maven2" />
-         <arg line="-DrepositoryId=snapshots.jboss.org" />
+         <arg line="-Durl=http://oss.sonatype.org/content/repositories/jboss-snapshots/" />
+         <arg line="-DrepositoryId=oss.sonatype.org/jboss-snapshots" />
          <arg line="-DuniqueVersion=false" />
       </maven>
    </target>
