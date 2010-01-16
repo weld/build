@@ -20,6 +20,11 @@
    <target name="setup">
       <fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
       <fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
+      <fail unless="weld.version" message="You must specify the weld.version as a property" />
+      <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
+      <fail unless="weld.wicket.version" message="You must specify the weld.wicket.version as a property" />
+      <fail unless="weld.se.version" message="You must specify the weld.se.version as a property" />
+      <fail unless="weld.servlet.version" message="You must specify the weld.servlet.version as a property" />
       <maven target="clean" basedir="${examples.dir}" />
       <delete dir="${weld.dir}/jboss-as/target" />
       <delete dir="${dist.dir}" failonerror="false" />
@@ -27,13 +32,6 @@
    </target>
 
    <target name="dist" description="Build the distribution" depends="setup, docs">
-
-      <fail unless="weld.version" message="You must specify the weld.version as a property" />
-      <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
-      <fail unless="weld.extensions.version" message="You must specify the weld.extensions.version as a property" />
-      <fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
-      <fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
-
 
       <copy todir="${dist.dir}">
          <fileset dir="${weld.dir}">
@@ -56,12 +54,11 @@
          <dependency groupId="javax.enterprise" artifactId="cdi-api" version="${weld.api.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.api.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-logger" version="${weld.extensions.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.extensions.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.extensions.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.extensions.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.extensions.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.extensions.version}" />
+         <dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.wicket.version}" />
+         <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.servlet.version}" />
          <remoteRepository id="repository.jboss.org" url="http://repository.jboss.org/maven2" />
       </artifact:dependencies>
 
