@@ -8,7 +8,7 @@
    </parent>
    <groupId>org.jboss.jsr299.tck</groupId>
    <artifactId>jsr299-tck-dist</artifactId>
-   <version>1.0.1-SNAPSHOT</version>
+   <version>${cdi.tck.version}</version>
    <packaging>pom</packaging>
    <name>JSR-299 TCK Distribution</name>
    
