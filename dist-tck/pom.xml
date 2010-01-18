@@ -128,6 +128,31 @@
                </execution>
             </executions>
          </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>enforce-property</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requireProperty>
+                           <property>cdi.tck.version</property>
+                           <message>"You must specify the property -Dcdi.tck.version=A.B.C-Q"</message>
+                        </requireProperty>
+                        <requireProperty>
+                           <property>weld.version</property>
+                           <message>"You must specify the property -Dweld.version=A.B.C-Q"</message>
+                        </requireProperty>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
       </plugins>
    </build>
    
