@@ -18,6 +18,7 @@
             <include>readme.txt</include>
             <include>apl.txt</include>
             <include>release-notes.txt</include>
+            <include>dd-override-report.txt</include>
          </includes>
       </fileSet>
    </fileSets>
