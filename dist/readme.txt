@@ -73,6 +73,7 @@
  Home Page:       http://seamframework.org/Weld
  Downloads:       http://seamframework.org/Download/SeamDownloads#H-WeldAndJSR299TCKReleases
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
+ Forums:          http://seamframework.org/Community/WeldUsers
  Source Code:     http://anonsvn.jboss.org/repos/weld
  Issue Tracking:  https://jira.jboss.org/jira/browse/WELD (core)
                   https://jira.jboss.org/jira/browse/WELDX (extensions)
