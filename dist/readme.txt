@@ -49,10 +49,6 @@
     Installer for JBoss AS, change into this directory, and run ant update
     There are more details in the reference guide
   
- lib/
-
-    Libraries,  for building the examples
-     
  artifacts/weld
 
     Weld binary, source and javadoc jars
