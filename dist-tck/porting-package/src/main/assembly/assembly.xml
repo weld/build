@@ -19,6 +19,9 @@
 
    <dependencySets>
       <dependencySet>
+         <excludes>
+            <exclude>org.jboss.jsr299.tck:*</exclude>
+         </excludes>
          <useTransitiveDependencies>true</useTransitiveDependencies>
          <outputDirectory>/porting-package-lib</outputDirectory>
          <useProjectArtifact>false</useProjectArtifact>
