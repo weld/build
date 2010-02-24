@@ -19,7 +19,7 @@
 
    <target name="setup">
       <fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
-      <fail unless="weld.dir" message="You must specify the examples directory with -Dweld.dir=~/workspace/weld" />
+      <fail unless="weld.dir" message="You must specify the weld directory with -Dweld.dir=~/workspace/weld" />
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
       <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
       <fail unless="weld.wicket.version" message="You must specify the weld.wicket.version as a property" />
