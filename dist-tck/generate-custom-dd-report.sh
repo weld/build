@@ -3,7 +3,7 @@
 ANNOTATIONS="@PersistenceXml @WebXml @EjbJarXml"
 
 report=`pwd`/dd-override-report.txt
-echo "Deployment Descripters overriden by the TCK\n\n" > dd-override-report.txt
+echo "Deployment Descriptors overriden by the TCK\n\n" > dd-override-report.txt
 
 if [[ -z $TCK_HOME ]]
 then
