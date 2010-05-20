@@ -291,12 +291,9 @@
                            <requireMavenVersion>
                               <version>[${minimum.maven.version},)</version>
                            </requireMavenVersion>
-                           <requirePluginVersions>
-                              <unCheckedPlugins>
-                                 <unCheckedPlugin>org.apache.maven.plugins:maven-eclipse-plugin</unCheckedPlugin>
-                              </unCheckedPlugins>
-                           </requirePluginVersions>
+                           <requirePluginVersions />
                         </rules>
+                        <unCheckedPluginsList>org.apache.maven.plugins:maven-eclipse-plugin</unCheckedPluginsList>
                      </configuration>
                   </execution>
                </executions>
