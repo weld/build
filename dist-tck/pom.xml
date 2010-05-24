@@ -70,6 +70,14 @@
          <groupId>org.jboss.jsr299.tck</groupId>
          <artifactId>jsr299-tck-impl</artifactId>
          <version>${cdi.tck.version}</version>
+         <classifier>audit-int</classifier>
+         <type>xml</type>
+         <optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.jsr299.tck</groupId>
+         <artifactId>jsr299-tck-impl</artifactId>
+         <version>${cdi.tck.version}</version>
          <classifier>suite</classifier>
          <type>xml</type>
          <optional>true</optional>
@@ -87,6 +95,14 @@
          <artifactId>jsr299-tck-impl</artifactId>
          <version>${cdi.tck.version}</version>
          <classifier>coverage-mb</classifier>
+         <type>html</type>
+         <optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.jsr299.tck</groupId>
+         <artifactId>jsr299-tck-impl</artifactId>
+         <version>${cdi.tck.version}</version>
+         <classifier>coverage-int</classifier>
          <type>html</type>
          <optional>true</optional>
       </dependency>
