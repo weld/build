@@ -443,6 +443,11 @@
                <artifactId>jboss-maven-plugin</artifactId>
                <version>1.4</version>
             </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>emma-maven-plugin</artifactId>
+               <version>1.0-alpha-2</version>
+            </plugin>
          </plugins>
       </pluginManagement>
    </build>
