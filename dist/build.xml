@@ -22,7 +22,6 @@
       <fail unless="weld.dir" message="You must specify the weld directory with -Dweld.dir=~/workspace/weld" />
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
       <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
-      <fail unless="weld.wicket.version" message="You must specify the weld.wicket.version as a property" />
       <fail unless="weld.se.version" message="You must specify the weld.se.version as a property" />
       <fail unless="weld.servlet.version" message="You must specify the weld.servlet.version as a property" />
       <maven target="clean" basedir="${examples.dir}" />
@@ -54,12 +53,12 @@
          <dependency groupId="javax.enterprise" artifactId="cdi-api" version="${weld.api.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.api.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-wicket" version="${weld.wicket.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.servlet.version}" />
-         <remoteRepository id="repository.jboss.org" url="http://repository.jboss.org/maven2" />
+         <remoteRepository id="repository.jboss.org" url="https://repository.jboss.org/nexus/content/groups/public/" />
+         <remoteRepository id="oss.sonatype.org/jboss-snapshots" url="http://oss.sonatype.org/content/repositories/jboss-snapshots/" />
       </artifact:dependencies>
 
       <delete dir="target" failonerror="false" />
