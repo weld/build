@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
@@ -78,6 +79,7 @@
       <weld.docbook.version>1.1.1-Beta3</weld.docbook.version>
       <seam.docbook.version>1.1.0.GA</seam.docbook.version>
       <jbossorg.docbook.version>1.1.0</jbossorg.docbook.version>
+      <pdf.name>${project.artifactId}.pdf</pdf.name>
       <minimum.maven.version>2.0.10</minimum.maven.version>
    </properties>
 
@@ -227,6 +229,11 @@
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-assembly-plugin</artifactId>
                <version>2.2-beta-4</version>
+               <configuration>
+                  <descriptors>
+                     <descriptor>src/main/assembly/assembly.xml</descriptor>
+                  </descriptors>
+               </configuration>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -394,14 +401,80 @@
                <version>0.6.9</version>
             </plugin>
             <plugin>
+               <groupId>org.glassfish</groupId>
+               <artifactId>maven-embedded-glassfish-plugin</artifactId>
+               <version>3.0</version>
+               <configuration>
+                  <goalPrefix>glassfish</goalPrefix>
+                  <app>${project.build.directory}/${build.finalName}.war</app>
+                  <port>7070</port>
+                  <contextRoot>${build.finalName}</contextRoot>
+               </configuration>
+               <executions>
+                  <execution>
+                     <phase>install</phase>
+                     <goals>
+                        <goal>run</goal>
+                     </goals>
+                  </execution>
+               </executions>
+            </plugin>
+            <plugin>
+               <groupId>org.mortbay.jetty</groupId>
+               <artifactId>maven-jetty-plugin</artifactId>
+               <version>6.1.21</version>
+               <configuration>
+                  <!-- Delete this block to have Jetty run default port (8080) -->
+                  <connectors>
+                     <connector
+                        implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                        <port>6060</port>
+                     </connector>
+                  </connectors>
+                  <!-- force friendly name instead of artifact name + version -->
+                  <contextPath>${project.build.finalName}</contextPath>
+                  <!--
+                     Where the BeanManager is constructed. This is where
+                     you'll declare datasources.
+                  -->
+                  <jettyEnvXml>${basedir}/src/test/resources/jetty-env.xml</jettyEnvXml>
+                  <!-- This parameter will auto-deploy modified classes. -->
+                  <!--
+                     You can save changes in a file or class and refresh
+                     your browser to view the changes.
+                  -->
+                  <scanIntervalSeconds>3</scanIntervalSeconds>
+               </configuration>
+            </plugin>
+
+            <!-- Embedded Tomcat (package tomcat:run) -->
+            <!-- Standalone Tomcat (package tomcat:deploy) -->
+            <plugin>
                <groupId>org.codehaus.mojo</groupId>
                <artifactId>tomcat-maven-plugin</artifactId>
                <version>1.0-beta-1</version>
+               <configuration>
+                  <path>/${project.build.finalName}</path>
+                  <!-- Embedded port -->
+                  <port>9090</port>
+                  <!--
+                     The default authentication credentials for remote
+                     deployment are username "admin" with no password To
+                     override credentials, define a server in
+                     settings.xml and activate it using the <server>
+                     element
+                  -->
+                  <url>http://localhost:8080/manager</url>
+               </configuration>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-war-plugin</artifactId>
                <version>2.1-beta-1</version>
+               <configuration>
+                  <failOnMissingWebXml>false</failOnMissingWebXml>
+                  <warName>${project.build.finalName}</warName>
+               </configuration>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -412,11 +485,6 @@
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-ear-plugin</artifactId>
                <version>2.3.2</version>
-            </plugin>
-            <plugin>
-               <groupId>org.mortbay.jetty</groupId>
-               <artifactId>maven-jetty-plugin</artifactId>
-               <version>6.1.21</version>
             </plugin>
             <plugin>
                <groupId>com.pyx4j</groupId>
@@ -447,6 +515,16 @@
                <groupId>org.codehaus.mojo</groupId>
                <artifactId>emma-maven-plugin</artifactId>
                <version>1.0-alpha-2</version>
+            </plugin>
+            <plugin>
+               <groupId>org.sonatype.maven.plugin</groupId>
+               <artifactId>emma4it-maven-plugin</artifactId>
+               <version>1.3</version>
+            </plugin>
+            <plugin>
+               <groupId>org.glassfish</groupId>
+               <artifactId>maven-embedded-glassfish-plugin</artifactId>
+               <version>3.0</version>
             </plugin>
          </plugins>
       </pluginManagement>
@@ -485,7 +563,8 @@
                   <artifactId>nexus-maven-plugin</artifactId>
                   <configuration>
                      <auto>true</auto>
-                     <description>[nexus-maven-plugin] closing repository after release:perform</description>
+                     <description>[nexus-maven-plugin] closing
+                        repository after release:perform</description>
                   </configuration>
                </plugin>
                <plugin>
@@ -507,6 +586,89 @@
                   <inherited>true</inherited>
                </plugin>
             </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>distribution</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>javadoc-api</id>
+                        <phase>package</phase>
+                        <goals>
+                           <goal>javadoc</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>code-coverage</id>
+         <build>
+            <pluginManagement>
+               <plugins>
+                  <plugin>
+                     <groupId>org.codehaus.mojo</groupId>
+                     <artifactId>emma-maven-plugin</artifactId>
+                     <executions>
+                        <execution>
+                           <id>instrumentation</id>
+                           <phase>process-classes</phase>
+                           <goals>
+                              <goal>instrument</goal>
+                           </goals>
+                           <configuration>
+                              <verbose>true</verbose>
+                           </configuration>
+                        </execution>
+                        <execution>
+                           <id>cleaning</id>
+                           <phase>clean</phase>
+                           <goals>
+                              <goal>clean</goal>
+                           </goals>
+                        </execution>
+                     </executions>
+                  </plugin>
+
+                  <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-surefire-plugin</artifactId>
+                     <inherited>true</inherited>
+                     <configuration>
+                        <forkMode>once</forkMode>
+                        <classesDirectory>${project.build.directory}/generated-classes/emma/classes</classesDirectory>
+                     </configuration>
+                  </plugin>
+
+                  <plugin>
+                     <groupId>org.sonatype.maven.plugin</groupId>
+                     <artifactId>emma4it-maven-plugin</artifactId>
+                     <executions>
+                        <execution>
+                           <id>report</id>
+                           <phase>test</phase>
+                           <goals>
+                              <goal>report</goal>
+                           </goals>
+                           <configuration>
+                              <sourceSets>
+                                 <sourceSet>
+                                    <directory>${project.build.sourceDirectory}</directory>
+                                 </sourceSet>
+                              </sourceSets>
+                           </configuration>
+                        </execution>
+                     </executions>
+                  </plugin>
+               </plugins>
+            </pluginManagement>
          </build>
       </profile>
    </profiles>
