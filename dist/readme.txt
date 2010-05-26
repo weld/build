@@ -22,11 +22,10 @@
  extension). In fact, through extensions, Weld can accomodate any Java
  environment.
  
- Currently, you must use JBoss AS 5.2.0.Beta1 (use nightly builds until
- released) or above deploy the provided examples out of the box. Marked
- examples, which do not include EJB session beans, can also be deployed to
- Apache Tomcat 6 or Jetty 6. Other application servers may be supported by
- the examples in the 1.0.0 release.
+ Currently, you must use JBoss AS 6.0 or above to deploy the provided examples
+ out of the box. Marked examples, which do not include EJB session beans, can 
+ also be deployed to Apache Tomcat 6 or Jetty 6. Weld examples also work on 
+ GlassFish V3, build the artifacts using mvn install and deploy.
 
  JDK 5.0 or JDK 6.0 is required for all Weld releases.
 
