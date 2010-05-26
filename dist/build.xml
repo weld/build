@@ -56,7 +56,6 @@
          <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-tomcat-support" version="${weld.servlet.version}" />
          <remoteRepository id="repository.jboss.org" url="https://repository.jboss.org/nexus/content/groups/public/" />
          <remoteRepository id="oss.sonatype.org/jboss-snapshots" url="http://oss.sonatype.org/content/repositories/jboss-snapshots/" />
       </artifact:dependencies>
