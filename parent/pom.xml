@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
@@ -238,12 +239,21 @@
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-assembly-plugin</artifactId>
                <version>2.2-beta-5</version>
-               <configuration>
-                  <descriptors>
-                     <descriptor>src/main/assembly/assembly.xml</descriptor>
-                  </descriptors>
-                  <finalName>${project.build.finalName}</finalName>
-               </configuration>
+               <executions>
+                  <execution>
+                     <id>distribution</id>
+                     <phase>package</phase>
+                     <goals>
+                        <goal>single</goal>
+                     </goals>
+                     <configuration>
+                        <descriptors>
+                           <descriptor>src/main/assembly/assembly.xml</descriptor>
+                        </descriptors>
+                        <finalName>${project.build.finalName}-${project.version}</finalName>
+                     </configuration>
+                  </execution>
+               </executions>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
@@ -442,7 +452,8 @@
                <configuration>
                   <!-- Delete this block to have Jetty run default port (8080) -->
                   <connectors>
-                     <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                     <connector
+                        implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                         <port>9090</port>
                      </connector>
                   </connectors>
@@ -543,7 +554,6 @@
    </build>
 
    <profiles>
-      <!-- The release profile -->
       <profile>
          <id>release</id>
          <activation>
@@ -602,6 +612,15 @@
       </profile>
       <profile>
          <id>distribution</id>
+         <activation>
+            <property>
+               <name>dist</name>
+            </property>
+         </activation>
+         <properties>
+            <!-- Skip failing tests when building dist -->
+            <maven.test.failure.ignore>true</maven.test.failure.ignore>
+         </properties>
          <build>
             <plugins>
                <plugin>
@@ -612,10 +631,17 @@
                         <id>javadoc</id>
                         <phase>package</phase>
                         <goals>
-                           <goal>javadoc</goal>
+                           <goal>jar</goal>
                         </goals>
                      </execution>
                   </executions>
+               </plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-deploy-plugin</artifactId>
+                  <configuration>
+                     <skip>${maven.deploy.skip}</skip>
+                  </configuration>
                </plugin>
             </plugins>
          </build>
