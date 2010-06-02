@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.weld</groupId>
    <artifactId>weld-parent</artifactId>
    <packaging>pom</packaging>
-   <version>11-SNAPSHOT</version>
+   <version>11</version>
 
    <name>Weld Parent</name>
 
@@ -452,8 +451,7 @@
                <configuration>
                   <!-- Delete this block to have Jetty run default port (8080) -->
                   <connectors>
-                     <connector
-                        implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                     <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                         <port>9090</port>
                      </connector>
                   </connectors>
@@ -719,9 +717,9 @@
    <!-- SCM and Distribution Management -->
 
    <scm>
-      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/trunk/parent</connection>
-      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/trunk/parent</developerConnection>
-      <url>http://fisheye.jboss.org/browse/Weld/build/trunk/parent</url>
+      <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/build/tags/weld-parent-11</connection>
+      <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/build/tags/weld-parent-11</developerConnection>
+      <url>http://fisheye.jboss.org/browse/Weld/build/tags/weld-parent-11</url>
    </scm>
 
    <distributionManagement>
