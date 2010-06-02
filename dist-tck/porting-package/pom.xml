@@ -12,10 +12,6 @@
    <packaging>pom</packaging>
    <name>JSR-299 TCK Distribution - Weld Porting Package</name>
 
-   <properties>
-      <weld.version>1.0.0-SNAPSHOT</weld.version>
-   </properties>
-
    <dependencies>
       <dependency>
          <groupId>org.jboss.weld</groupId>
@@ -47,7 +43,7 @@
          <optional>true</optional>
          <scope>compile</scope>
          <type>test-jar</type>
-         <classifier>sources</classifier>
+         <classifier>test-sources</classifier>
       </dependency>
       <dependency>
          <groupId>org.jboss.weld</groupId>
