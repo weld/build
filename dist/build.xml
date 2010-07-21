@@ -57,7 +57,7 @@
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
          <remoteRepository id="repository.jboss.org" url="https://repository.jboss.org/nexus/content/groups/public/" />
-         <remoteRepository id="oss.sonatype.org/jboss-snapshots" url="http://oss.sonatype.org/content/repositories/jboss-snapshots/" />
+         <remoteRepository id="oss.sonatype.org/jboss-snapshots" url="http://oss.sonatype.org/content/repositories/snapshots/" />
       </artifact:dependencies>
 
       <delete dir="target" failonerror="false" />
@@ -111,7 +111,7 @@
          <arg line="-Dpackaging=zip" />
          <arg line="-Dversion=${weld.version}" />
          <arg line="-Dfile=${basedir}/weld-${weld.version}.zip" />
-         <arg line="-Durl=http://oss.sonatype.org/content/repositories/jboss-snapshots/" />
+         <arg line="-Durl=http://oss.sonatype.org/content/repositories/snapshots/" />
          <arg line="-DrepositoryId=oss.sonatype.org/jboss-snapshots" />
          <arg line="-DuniqueVersion=false" />
       </maven>
