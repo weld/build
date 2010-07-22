@@ -35,42 +35,22 @@
 
    <pluginRepositories>
       <pluginRepository>
-         <id>twdata-m2-repository.googlecode.com</id>
-         <url>http://twdata-m2-repository.googlecode.com/svn</url>
+         <id>jboss-snapshots-repository</id>
+         <url>http://repository.jboss.org/nexus/content/groups/public</url>
          <releases>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
          </releases>
          <snapshots>
-            <enabled>false</enabled>
-         </snapshots>
-      </pluginRepository>
-      <pluginRepository>
-         <id>download.java.net/glassfish</id>
-         <url>http://download.java.net/maven/glassfish</url>
-         <releases>
             <enabled>true</enabled>
-         </releases>
-         <snapshots>
-            <enabled>false</enabled>
-         </snapshots>
-      </pluginRepository>
-      <pluginRepository>
-         <id>repository.jboss.org</id>
-         <url>http://repository.jboss.org/maven2</url>
-         <releases>
-            <enabled>true</enabled>
-         </releases>
-         <snapshots>
-            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
          </snapshots>
       </pluginRepository>
    </pluginRepositories>
 
    <repositories>
       <repository>
-         <id>oss.sonatype.org/jboss-snapshots</id>
-         <name>JBoss (Nexus) Snapshots Repository</name>
-         <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+         <id>jboss-snapshots-repository</id>
+         <url>http://repository.jboss.org/nexus/content/groups/public</url>
          <releases>
             <enabled>false</enabled>
          </releases>
@@ -528,8 +508,8 @@
                <artifactId>nexus-maven-plugin</artifactId>
                <version>1.3.2.1</version>
                <configuration>
-                  <nexusUrl>http://oss.sonatype.org</nexusUrl>
-                  <serverAuthId>oss.sonatype.org/jboss-staging</serverAuthId>
+                  <nexusUrl>https://repository.jboss.org/nexus</nexusUrl>
+                  <serverAuthId>jboss-releases-repository</serverAuthId>
                </configuration>
             </plugin>
             <plugin>
