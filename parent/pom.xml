@@ -309,9 +309,7 @@
                                  <unCheckedPlugin>org.codehaus.mojo:versions-maven-plugin</unCheckedPlugin>
                               </unCheckedPlugins>
                            </requirePluginVersions>
-
                         </rules>
-
                      </configuration>
                   </execution>
                </executions>
