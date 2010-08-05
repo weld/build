@@ -599,7 +599,8 @@
                         <goals>
                            <goal>create</goal>
                         </goals>
-                        <phase>validate</phase>
+                        <!-- Disabled, doesn't support git -->
+                        <phase>none</phase>
                         <configuration>
                            <doUpdate>true</doUpdate>
                            <doCheck>true</doCheck>
