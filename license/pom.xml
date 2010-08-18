@@ -27,6 +27,13 @@
             </executions>
          </plugin>
          <plugin>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.4</version>
+            <configuration>
+               <pushChanges>false</pushChanges>
+            </configuration>
+         </plugin>
+         <plugin>
             <artifactId>maven-release-plugin</artifactId>
             <version>2.0</version>
             <configuration>
@@ -40,7 +47,7 @@
 
    <scm>
       <connection>scm:git:git://github.com/weld/build.git</connection>
-      <developerConnection>scm:git:git://github.com/weld/build.git</developerConnection>
+      <developerConnection>scm:git:git@github.com:weld/build.git</developerConnection>
       <url>scm:git:git://github.com/weld/build.git</url>
    </scm>
 
