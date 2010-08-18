@@ -60,7 +60,14 @@
  =========
  
  This distribution, as a whole, is licensed under the terms of the Apache
- License, Version 2.0 (see apl.txt).
+ License, Version 2.0 (see LICENSE.txt).
+
+ The various components in this JAR are each licensed under an open source 
+ license that permits you to copy, modify, and distribute the code in both
+ binary and source code form. In some cases those licenses impose 
+ requirements on you when you redistribute the code. Please refer to the 
+ license information contained in the source code of each of the components
+ for the specific license applicable to that component.
 
  Weld URLs
  =========
