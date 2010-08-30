@@ -6,27 +6,40 @@
    <path id="maven-ant-tasks.classpath" path="${parent.dir}/lib/maven-ant-tasks.jar" />
    <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant" classpathref="maven-ant-tasks.classpath" />
 
-   <property file="versions.properties" />
-
    <property name="maven.dir" location="${parent.dir}/lib/maven" />
 
-   <property name="final.name" value="weld-${weld.version}" />
-   <property name="dist.dir" value="${basedir}/${final.name}" />
-   <property name="dist.weld.lib.dir" value="${dist.dir}/artifacts/weld" />
-   <property name="dist.cdi.lib.dir" value="${dist.dir}/artifacts/cdi" />
-   <property name="dist.doc.dir" value="${dist.dir}/doc" />
-   <property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs" />
+   <target name="weld.dir.input" unless="weld.dir">
+      <input message="Path to Weld Core source directory" addproperty="weld.dir" />
+   </target>
 
-   <target name="setup">
-      <fail unless="examples.dir" message="You must specify the examples directory with -Dexamples.dir=~/workspace/examples" />
+   <target name="weld.version.input" unless="weld.version">
+      <input message="Weld Core Version (used to locate built Weld jars)" addproperty="weld.version" />
+   </target>
+
+   <target name="setup" depends="weld.dir.input, weld.version.input">
       <fail unless="weld.dir" message="You must specify the weld directory with -Dweld.dir=~/workspace/weld" />
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
-      <fail unless="weld.api.version" message="You must specify the weld.api.version as a property" />
-      <fail unless="weld.se.version" message="You must specify the weld.se.version as a property" />
-      <fail unless="weld.servlet.version" message="You must specify the weld.servlet.version as a property" />
-      <maven target="clean" basedir="${examples.dir}" />
-      <delete dir="${weld.dir}/jboss-as/target" />
+      
+      <property name="examples.dir" value="${weld.dir}/examples" />
+      <property name="refdoc.dir" value="${weld.dir}/docs/reference" />
+      <property name="final.name" value="weld-${weld.version}" />
+      <property name="dist.dir" value="${basedir}/${final.name}" />
+      <property name="dist.weld.lib.dir" value="${dist.dir}/artifacts/weld" />
+      <property name="dist.cdi.lib.dir" value="${dist.dir}/artifacts/cdi" />
+      <property name="dist.doc.dir" value="${dist.dir}/doc" />
+      <property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs" />
+
+      <echo message="Using ${weld.dir} as Weld Core source directory" />
+      <echo message="Using ${weld.version} as Weld Core version" />
+
+      <echo message="Running mvn clean on ${weld.dir}" />
+      <!-- Make sure there are no random bits of build crap that get copied in! -->
+      <maven target="clean" basedir="${weld.dir}">
+         <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
+      </maven>
+
       <delete dir="${dist.dir}" failonerror="false" />
+      <delete file="${final.name}.zip" failonerror="false" />
       <mkdir dir="${dist.dir}" />
    </target>
 
@@ -50,14 +63,12 @@
       </copy>
 
       <artifact:dependencies filesetId="weld.fileset" versionsId="weld.versions" sourcesfilesetid="weld.sources.fileset" javadocfilesetid="weld.javadocs.fileset">
-         <dependency groupId="javax.enterprise" artifactId="cdi-api" version="${weld.api.version}" />
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-spi" version="${weld.api.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="weld-se" version="${weld.se.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.servlet.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-int" version="${weld.servlet.version}" />
+         <dependency groupId="org.jboss.weld.se" artifactId="weld-se" version="${weld.version}" />
+         <dependency groupId="org.jboss.weld.se" artifactId="weld-se-core" version="${weld.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-core" version="${weld.version}" />
          <remoteRepository id="repository.jboss.org" url="https://repository.jboss.org/nexus/content/groups/public/" />
-         <remoteRepository id="oss.sonatype.org/jboss-snapshots" url="http://oss.sonatype.org/content/repositories/snapshots/" />
       </artifact:dependencies>
 
       <delete dir="target" failonerror="false" />
@@ -86,7 +97,7 @@
             <include name="weld-*.jar" />
          </fileset>
       </copy>
-      
+
       <mkdir dir="${dist.cdi.lib.dir}" />
 
       <copy todir="${dist.cdi.lib.dir}">
@@ -94,7 +105,7 @@
             <include name="cdi-api*.jar" />
          </fileset>
       </copy>
-      
+
       <delete dir="target" failonerror="false" />
 
       <zip destfile="${final.name}.zip">
@@ -102,6 +113,11 @@
             <include name="${final.name}/**" />
          </fileset>
       </zip>
+
+      <!-- Clean up after ourselves -->
+      <maven target="clean" basedir="${weld.dir}">
+         <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
+      </maven>
    </target>
 
    <target name="deploy-dist">
@@ -118,8 +134,7 @@
    </target>
 
    <target name="docs">
-      <fail unless="refdoc.dir" message="You must specify the reference docs directory with -Drefdoc.dir=~/workspace/wb/reference" />
-      <maven target="clean" basedir="${refdoc.dir}" />
+      <echo message="Building reference guide from ${refdoc.dir} " />
       <maven target="jdocbook:translate compile" basedir="${refdoc.dir}" />
       <mkdir dir="${dist.doc.dir}" />
       <copy todir="${dist.doc.dir}">
@@ -134,7 +149,6 @@
             <include name="zh-TW/**/*" />
          </fileset>
       </copy>
-      <maven target="clean" basedir="${refdoc.dir}" />
    </target>
 
    <macrodef name="maven">
