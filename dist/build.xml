@@ -27,7 +27,7 @@
       <property name="dist.weld.lib.dir" value="${dist.dir}/artifacts/weld" />
       <property name="dist.cdi.lib.dir" value="${dist.dir}/artifacts/cdi" />
       <property name="dist.doc.dir" value="${dist.dir}/doc" />
-      <property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs" />
+      <property name="dist.apidocs.dir" value="${dist.dir}/doc/apidocs/cdi" />
 
       <echo message="Using ${weld.dir} as Weld Core source directory" />
       <echo message="Using ${weld.version} as Weld Core version" />

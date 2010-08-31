@@ -11,7 +11,7 @@
  Status
  =======
 
- This is feature complete release of the CDI specification.
+ This is feature complete implementation of the CDI specification.
 
  System requirements
  ===================
@@ -59,8 +59,7 @@
  Licensing
  =========
  
- This distribution, as a whole, is licensed under the terms of the Apache
- License, Version 2.0 (see LICENSE.txt).
+ This distribution, as a whole, is licensed under the terms of the ASL 2.0, Version 2.0 (see LICENSE.txt).
 
  The various components in this JAR are each licensed under an open source 
  license that permits you to copy, modify, and distribute the code in both
@@ -76,8 +75,6 @@
  Downloads:       http://seamframework.org/Download/SeamDownloads#H-WeldAndJSR299TCKReleases
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
  Forums:          http://seamframework.org/Community/WeldUsers
- Source Code:     http://anonsvn.jboss.org/repos/weld
+ Source Code:     http://github.com/weld
  Issue Tracking:  https://jira.jboss.org/jira/browse/WELD (core)
-                  https://jira.jboss.org/jira/browse/WELDX (extensions)
-                  https://jira.jboss.org/jira/browse/WELDINT (JBoss AS integration)
 
