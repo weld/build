@@ -46,9 +46,6 @@
    <target name="dist" description="Build the distribution" depends="setup, docs">
 
       <copy todir="${dist.dir}">
-         <fileset dir="${weld.dir}">
-            <include name="jboss-as/**" />
-         </fileset>
          <fileset dir="${basedir}">
             <include name="readme.txt" />
             <include name="LICENSE.txt" />

@@ -23,9 +23,11 @@
  environment.
  
  Currently, you must use JBoss AS 6.0 or above to deploy the provided examples
- out of the box. Marked examples, which do not include EJB session beans, can 
- also be deployed to Apache Tomcat 6 or Jetty 6. Weld examples also work on 
- GlassFish V3, build the artifacts using mvn install and deploy.
+ out of the box. Check http://www.seamframework.org/Weld/Downloads to find the
+ correct JBoss AS download for your Weld version. Marked examples, which do not
+ include EJB session beans, can also be deployed to Apache Tomcat 6 or Jetty 6.
+ Weld examples also work on GlassFish V3, build the artifacts using mvn install
+ and deploy.
 
  JDK 5.0 or JDK 6.0 is required for all Weld releases.
 
@@ -43,11 +45,6 @@
     The Weld examples, the examples are described in more detail in the 
     reference guide 
      
- jboss-as/
-
-    Installer for JBoss AS, change into this directory, and run ant update
-    There are more details in the reference guide
-  
  artifacts/weld
 
     Weld binary, source and javadoc jars
@@ -72,7 +69,7 @@
  =========
 
  Home Page:       http://seamframework.org/Weld
- Downloads:       http://seamframework.org/Download/SeamDownloads#H-WeldAndJSR299TCKReleases
+ Downloads:       http://www.seamframework.org/Weld/Downloads 
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
  Forums:          http://seamframework.org/Community/WeldUsers
  Source Code:     http://github.com/weld
