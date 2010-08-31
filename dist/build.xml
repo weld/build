@@ -37,6 +37,10 @@
       <maven target="clean" basedir="${weld.dir}">
          <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
       </maven>
+      <maven target="eclipse:clean" basedir="${weld.dir}">
+         <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
+      </maven>
+
 
       <delete dir="${dist.dir}" failonerror="false" />
       <delete file="${final.name}.zip" failonerror="false" />
