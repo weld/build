@@ -54,6 +54,70 @@
          <type>test-jar</type>
          <classifier>sources</classifier>
       </dependency>
+      <!-- Missing Java EE 6 RI dependencies -->
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>1.1</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-api</artifactId>
+        <version>1.0.0.Alpha4</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.protocol</groupId>
+        <artifactId>arquillian-protocol-local</artifactId>
+        <version>1.0.0.Alpha4</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-spi</artifactId>
+        <version>1.0.0.Alpha4</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
+        <artifactId>arquillian-testenricher-cdi</artifactId>
+        <version>1.0.0.Alpha4</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.weld.arquillian.container</groupId>
+        <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
+        <version>1.1.1.Final</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.xml.soap</groupId>
+        <artifactId>saaj-api</artifactId>
+        <version>1.3</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.shrinkwrap</groupId>
+        <artifactId>shrinkwrap-api</artifactId>
+        <version>1.0.0-alpha-11</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.shrinkwrap</groupId>
+        <artifactId>shrinkwrap-extension-classloader</artifactId>
+        <version>1.0.0-alpha-11</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
    </dependencies>
 
    <build>
