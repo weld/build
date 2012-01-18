@@ -6,7 +6,8 @@
    <path id="maven-ant-tasks.classpath" path="${parent.dir}/lib/maven-ant-tasks.jar" />
    <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant" classpathref="maven-ant-tasks.classpath" />
 
-   <property name="maven.dir" location="${parent.dir}/lib/maven" />
+   <property environment="env" />
+   <property name="maven.dir" location="${env.M2_HOME}" />
 
    <target name="weld.dir.input" unless="weld.dir">
       <input message="Path to Weld Core source directory" addproperty="weld.dir" />
@@ -19,6 +20,7 @@
    <target name="setup" depends="weld.dir.input, weld.version.input">
       <fail unless="weld.dir" message="You must specify the weld directory with -Dweld.dir=~/workspace/weld" />
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
+      <fail unless="env.M2_HOME" message="You must set M2_HOME properly" />
       
       <property name="examples.dir" value="${weld.dir}/examples" />
       <property name="refdoc.dir" value="${weld.dir}/docs/reference" />
