@@ -53,6 +53,10 @@
    
     CDI API binary, source and javadoc jars
 
+ as7-installer/
+
+    Installation script for upgrading Weld within existing AS7 installations.
+
  Licensing
  =========
  
