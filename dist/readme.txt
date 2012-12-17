@@ -4,32 +4,31 @@
  What is it?
  ============
 
- Weld is the reference implementation of JSR-299: Java Contents and Dependency
- Injection for the Java EE platform (CDI). JSR-299 is the new Java standard for
- dependency injection and contextual lifecycle management.
+ Weld is the reference implementation of JSR-299 and JSR-346: Java Contents and
+ Dependency Injection for the Java EE platform (CDI). CDI is the new Java
+ standard for dependency injection and contextual lifecycle management.
 
  Status
  =======
 
- This is feature complete implementation of the CDI specification.
+ This is preview implementation of the CDI 1.1 (JSR-346) specification.
 
  System requirements
  ===================
 
- Weld examples require either a Java EE 6 application server, a Java EE 5
- application server retrofitted to include CDI support, a servlet container
- (using the Weld servlet extension) and Java SE (using the Weld Java SE
- extension). In fact, through extensions, Weld can accomodate any Java
- environment.
+ Weld examples require either a Java EE 6 application server or better,
+ a servlet container (using the Weld servlet extension) and Java SE
+ (using the Weld Java SE extension). In fact, through extensions, Weld
+ can accomodate any Java environment.
  
- Currently, you must use JBoss AS 6.0 or above to deploy the provided examples
+ Currently, you must use JBoss AS 7 or above to deploy the provided examples
  out of the box. Check http://www.seamframework.org/Weld/Downloads to find the
  correct JBoss AS download for your Weld version. Marked examples, which do not
  include EJB session beans, can also be deployed to Apache Tomcat 6 or Jetty 6.
  Weld examples also work on GlassFish V3, build the artifacts using mvn install
  and deploy.
 
- JDK 5.0 or JDK 6.0 is required for all Weld releases.
+ JDK 6.0 or better is required for all Weld releases.
 
  Contents of distribution
  ========================
@@ -38,7 +37,7 @@
 
     API Docs and reference guide. Open doc/en-US/html/index.html in your
     browser for instructions on how to get started using Weld and the
-    facilities offered by JSR-299. 
+    facilities offered by CDI. 
    
  examples/
 
@@ -55,7 +54,7 @@
 
  as7-installer/
 
-    Installation script for upgrading Weld within existing AS7 installations.
+    Installation script for upgrading Weld within existing JBoss AS 7 installations.
 
  Licensing
  =========
@@ -75,7 +74,7 @@
  Home Page:       http://seamframework.org/Weld
  Downloads:       http://www.seamframework.org/Weld/Downloads 
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
- Forums:          http://seamframework.org/Community/WeldUsers
+ Forums:          https://community.jboss.org/en/weld
  Source Code:     http://github.com/weld
  Issue Tracking:  https://jira.jboss.org/jira/browse/WELD (core)
 
