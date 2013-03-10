@@ -23,4 +23,11 @@
         </extensions>
     </build>
 
+        <!-- SCM and distribution management -->
+    <scm>
+        <connection>scm:git:git@github.com:weld/build.git</connection>
+        <developerConnection>scm:git:git@github.com:weld/build.git</developerConnection>
+        <url>scm:git:git@github.com:weld/build.git</url>
+    </scm>
+
 </project>
