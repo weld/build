@@ -52,10 +52,6 @@
    
     CDI API binary, source and javadoc jars
 
- as7-installer/
-
-    Installation script for upgrading Weld within existing JBoss AS 7 installations.
-
  Licensing
  =========
  

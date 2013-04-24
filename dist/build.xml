@@ -19,13 +19,11 @@
 
    <target name="setup" depends="weld.dir.input, weld.version.input">
       <fail unless="weld.dir" message="You must specify the weld directory with -Dweld.dir=~/workspace/weld" />
-      <fail unless="as7.subsystem.dir" message="You must specify the as7-weld-subsystem directory with -Das7.subsystem.dir=~/workspace/as7-weld-subsystem" />
       <fail unless="weld.version" message="You must specify the weld.version as a property" />
       <fail unless="env.M2_HOME" message="You must set M2_HOME properly" />
       
       <property name="examples.dir" value="${weld.dir}/examples" />
       <property name="refdoc.dir" value="${weld.dir}/docs/reference" />
-      <property name="installer.dir" value="${as7.subsystem.dir}/installer" />
       <property name="final.name" value="weld-${weld.version}" />
       <property name="dist.dir" value="${basedir}/${final.name}" />
       <property name="dist.weld.lib.dir" value="${dist.dir}/artifacts/weld" />
@@ -44,9 +42,6 @@
       <maven target="eclipse:clean" basedir="${weld.dir}">
          <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
       </maven>
-      <maven target="clean" basedir="${installer.dir}" />
-      <maven target="eclipse:clean" basedir="${installer.dir}" />
-
 
       <delete dir="${dist.dir}" failonerror="false" />
       <delete file="${final.name}.zip" failonerror="false" />
@@ -67,14 +62,8 @@
          <fileset dir="${examples.dir}" />
       </copy>
 
-      <mkdir dir="${dist.dir}/as7-installer" />
-      <copy todir="${dist.dir}/as7-installer">
-         <fileset dir="${installer.dir}" excludes=".*/**" />
-      </copy>
-
       <artifact:dependencies filesetId="weld.fileset" versionsId="weld.versions" sourcesfilesetid="weld.sources.fileset" javadocfilesetid="weld.javadocs.fileset">
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
-         <dependency groupId="org.jboss.weld" artifactId="as7-weld-subsystem" version="${weld.version}" />
          <dependency groupId="org.jboss.weld.se" artifactId="weld-se" version="${weld.version}" />
          <dependency groupId="org.jboss.weld.se" artifactId="weld-se-core" version="${weld.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.version}" />
@@ -129,7 +118,6 @@
       <maven target="clean" basedir="${weld.dir}">
          <arg line="-Pupdate-jboss-as,examples,bundles,docs" />
       </maven>
-      <maven target="clean" basedir="${installer.dir}" />
    </target>
 
    <target name="deploy-dist">
