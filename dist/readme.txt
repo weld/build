@@ -4,14 +4,9 @@
  What is it?
  ============
 
- Weld is the reference implementation of JSR-299 and JSR-346: Java Contents and
+ Weld is the reference implementation of Java Contents and
  Dependency Injection for the Java EE platform (CDI). CDI is the new Java
  standard for dependency injection and contextual lifecycle management.
-
- Status
- =======
-
- This is preview implementation of the CDI 1.1 (JSR-346) specification.
 
  System requirements
  ===================
