@@ -9,7 +9,7 @@
 
     <groupId>org.jboss.weld</groupId>
     <artifactId>weld-common-build-config</artifactId>
-    <version>4</version>
+    <version>5-SNAPSHOT</version>
     <name>Weld: Common Build Configuration</name>
 
     <build>
