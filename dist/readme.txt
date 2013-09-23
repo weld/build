@@ -17,7 +17,7 @@
  can accomodate any Java environment.
  
  Currently, you must use JBoss AS 7 or above to deploy the provided examples
- out of the box. Check http://www.seamframework.org/Weld/Downloads to find the
+ out of the box. Check http://weld.cdi-spec.org/download/ to find the
  correct JBoss AS download for your Weld version. Marked examples, which do not
  include EJB session beans, can also be deployed to Apache Tomcat 6 or Jetty 6.
  Weld examples also work on GlassFish V3, build the artifacts using mvn install
@@ -62,8 +62,8 @@
  Weld URLs
  =========
 
- Home Page:       http://seamframework.org/Weld
- Downloads:       http://www.seamframework.org/Weld/Downloads 
+ Home Page:       http://weld.cdi-spec.org
+ Downloads:       http://weld.cdi-spec.org/download/
  Mailing Lists:   https://lists.jboss.org/mailman/listinfo/weld-dev
  Forums:          https://community.jboss.org/en/weld
  Source Code:     http://github.com/weld
