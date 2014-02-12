@@ -1,4 +1,66 @@
 ----------------
+* 1.1.3.Final  *
+----------------
+
+** Bug
+    * [CDITCK-375] - CustomCDIProviderTest based on incorrect assumption
+    * [CDITCK-386] - WrongExtension$FooInjectionPoint may cause AmbiguousResolutionException
+    * [CDITCK-387] - SimpleLogger should be serializable
+    * [CDITCK-389] - InterceptorBindingInheritanceTest has invalid expectations of @Stateless beans
+    * [CDITCK-391] - QualifierEquivalenceTest makes wrong assumption about Bean#getQualifiers()
+
+** Enhancement
+    * [CDITCK-383] - Improve error reporting in PropertiesBasedConfigurationBuilder
+
+** Feature Request
+    * [CDITCK-378] - Document the way the canonical configuration file works
+    * [CDITCK-381] - Update section "3.1. Obtaining the Software" - it refers to outdated seamframework.org site
+
+** Task
+    * [CDITCK-226] - Update CDI TCK release notes
+
+----------------
+* 1.1.2.Final  *
+----------------
+
+** Bug
+    * [CDITCK-371] - Fix ArchiveBuilder ShrinkWrap optimization
+    * [CDITCK-372] - ResolutionByTypeTest.testResolveByTypeWithPrimitives() does not tolerate built-in beans
+
+** Feature Request
+    * [CDITCK-373] - Enable ArchiveBuilder debug mode via system property
+
+** Task
+    * [CDITCK-374] - Log all caught exceptions properly in tests from JMS test group
+
+----------------
+* 1.1.1.Final  *
+----------------
+
+** Bug
+    * [CDITCK-368] - InterceptorInvocationTest possibly unstable
+
+** Task
+    * [CDITCK-365] - Create a TestNG listener to write down some TCK configuration info for each test suite execution
+
+----------------
+* 1.1.0.SP2    *
+----------------
+
+** Bug
+    * [CDITCK-342] - EjbJarDescriptorBuilder generates invalid message-driven element contents
+
+----------------
+* 1.1.0.SP1    *
+----------------
+
+** Bug
+    * [CDITCK-341] - Fix test groups assignment to identify the tests for Java EE Web Profile properly
+
+** Task
+    * [CDITCK-337] - Improve ExcludeFiltersTest
+
+----------------
 * 1.1.0.Final  *
 ----------------
 
