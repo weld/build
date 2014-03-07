@@ -1,0 +1,286 @@
+----------------
+* 1.1.0.Final  *
+----------------
+
+Release Notes for CDI TCK
+
+Includes versions: 
+1.1.0.Alpha1, 1.1.0.Beta9, 1.1.0.Alpha2, 1.1.0.Alpha3, 1.1.0.Beta1, 1.1.0.Beta2, 1.1.0.Beta3, 1.1.0.Beta4, 1.1.0.Beta5, 1.1.0.Beta6, 1.1.0.Final, 1.1.0.Beta7, 1.1.0.Beta8, 1.1.0.CR1, 1.1.0.CR2, 1.1.0.CR3, 
+
+** Sub-task
+   * [ CDITCK-254 ] @MessageDriven Bean @Inject tests 			
+   * [ CDITCK-255 ] @MessageDriven bean Request Context tests 			
+   * [ CDITCK-256 ] @MessageDriven bean Application context tests 			
+   * [ CDITCK-257 ] @MessageDriven bean Interceptor tests 			
+   * [ CDITCK-258 ] @MessageDriven bean ProcessInjectionTarget event 			
+
+** Feature Request
+   * [ CDITCK-11 ] Test more corner cases for specialization 			
+   * [ CDITCK-8 ] Use case based tests 			
+   * [ CDITCK-15 ] Corner case tests for injecting into non-contextual EJBs 			
+   * [ CDITCK-12 ] Test injection of paramterized types, not just lookup via manager 			
+   * [ CDITCK-41 ] Remove lib/ directories, and instead provide maven goal that will generate lib/  			
+   * [ CDITCK-52 ] Add all tests suitable for EEJB environment to "eejb" group 			
+   * [ CDITCK-61 ] Find a better way to test installed libraries 			
+   * [ CDITCK-63 ] Test decorators and interceptors in other scopes than @Dependent 			
+   * [ CDITCK-64 ] Add test for abstract decorators. 			
+   * [ CDITCK-72 ] The source files for the Weld Impl of the 299 TCK porting interfaces should be in the TCK bundle 			
+   * [ CDITCK-73 ] Test abstract decorators functionally 			
+   * [ CDITCK-85 ] CDI TCK should have support for Java EE Web Profile via groups 			
+   * [ CDITCK-96 ] JAX-RS tests needed for CDI 			
+   * [ CDITCK-114 ] Implement test for assertion 6.7.4 tb using a filter to check for the exception 			
+   * [ CDITCK-146 ] org.jboss.jsr299.tck.interceptors.tests.lifecycleCallback.LifecycleCallbackInterceptorTest assumes that getTarget() will return a bean of the intercepted bean type 			
+   * [ CDITCK-205 ] Add test to verify extensions in non-bean archives are loaded 			
+   * [ CDITCK-206 ] Add test to verify visibly of beans registered explicitly through an extension in non-bean archives 			
+   * [ CDITCK-207 ] Verify a pseudo scoped bean can resolve InjectionPoint from inside create() 			
+   * [ CDITCK-208 ] TCK should test bean deployment archive behaviour more thoroughly  			
+   * [ CDITCK-234 ] Revise test package org.jboss.jsr299.tck.tests.policy 			
+   * [ CDITCK-235 ] Add tests for BM injection into container event observers 			
+   * [ CDITCK-236 ] Improve test coverage for extension-provided Interceptors and Decorators 			
+   * [ CDITCK-237 ] Implement tests for CDI-2 			
+   * [ CDITCK-238 ] Implement tests for CDI-78 			
+   * [ CDITCK-239 ] Align the TCK with CDI-141 			
+   * [ CDITCK-240 ] Align the TCK with CDI-136 			
+   * [ CDITCK-243 ] Implement tests for CDI-36 			
+   * [ CDITCK-244 ] Implement tests for CDI-75 			
+   * [ CDITCK-245 ] Implement tests for CDI-28 			
+   * [ CDITCK-246 ] Implement tests for CDI-145 			
+   * [ CDITCK-247 ] Implement tests for CDI-70 			
+   * [ CDITCK-248 ] Implement tests for CDI-132 			
+   * [ CDITCK-251 ] Implement tests for CDI-99 			
+   * [ CDITCK-252 ] Implement tests for CDI-97 			
+   * [ CDITCK-259 ] Implement tests for CDI-52 			
+   * [ CDITCK-260 ] Implement tests for CDI-92 			
+   * [ CDITCK-262 ] Implement tests for CDI-96 			
+   * [ CDITCK-266 ] Provide the porting package javadoc as part of the CDI TCK bundle 			
+   * [ CDITCK-268 ] There should be some tests for decorating session beans 			
+   * [ CDITCK-269 ] Tests for ProcessProducer*.getAnnotatedDisposedParameter() 			
+   * [ CDITCK-271 ] Create a test for disposed parameter position 			
+   * [ CDITCK-275 ] Extend test coverage for type validation of a resource declaration (3.6.1) 			
+   * [ CDITCK-285 ] Extend tests - fire ProcessAnnotatedType for annotations 			
+   * [ CDITCK-287 ] Test interceptor ordering if around-invoke or lifecycle event callback methods declared on the target class 			
+   * [ CDITCK-288 ] Remove tests for enum support 			
+   * [ CDITCK-289 ] Update CDI API signature files 			
+   * [ CDITCK-293 ] Look into the test suite time consumption 			
+   * [ CDITCK-314 ] Implement "no XML" approach to activating JAX-RS 			
+   * [ CDITCK-331 ] Add tests for @AroundConstruct interceptors bound to managed/session beans using @Interceptors applied on constructor level 			
+
+** Bug
+   * [ CDITCK-16 ] Tests for transactional observers are inconsistent 			
+   * [ CDITCK-39 ] PDF reference documentation unreadable 			
+   * [ CDITCK-44 ] Test coverage files are generated in directory from which maven is run 			
+   * [ CDITCK-107 ] Registration of a custom implementation of the Decorator interface fails 			
+   * [ CDITCK-48 ] Document maven version in docs 			
+   * [ CDITCK-54 ] Documentation issues 			
+   * [ CDITCK-55 ] Replace references of Web Beans with Weld 			
+   * [ CDITCK-56 ] mispackaged application caused deployment failure on glassfish v3 			
+   * [ CDITCK-57 ] Issues in testGetStereotypesCalled and testIsNullableCalled 			
+   * [ CDITCK-59 ] EAR package is not portable 			
+   * [ CDITCK-60 ] Use of @WebServiceRef is not portable 			
+   * [ CDITCK-68 ] Event not fired in Glassfish 			
+   * [ CDITCK-70 ] Issue with org.jboss.jsr299.tck.tests.lookup.injection.non.contextual.ContainerEventTest 			
+   * [ CDITCK-71 ] Need to document where persistence.xml needs to be updated... 			
+   * [ CDITCK-74 ] Test fails in GF due to incorrect assumption 			
+   * [ CDITCK-76 ] Incorrect <servlet-name> in  org.jboss.jsr299.tck.tests.lookup.injection.non.contextual.ws.InjectionIntoWebServiceEndPointTest.war 			
+   * [ CDITCK-77 ] Issue with testProcessInjectionTargetEventFiredForFilter testcase 			
+   * [ CDITCK-78 ] Weld does not scan packaged jar in EAR file for Extension or the packaging is wrong 			
+   * [ CDITCK-79 ] test failures in implementation.producer.method.definition.enterprise.EnterpriseProducerMethodDefinitionTest 			
+   * [ CDITCK-80 ] Issue surrounding Bean.destroy() behavior 			
+   * [ CDITCK-82 ] interception methods need to declare a 'throws Exception' 			
+   * [ CDITCK-83 ] @Decorator must not extend a class but implements an interface 			
+   * [ CDITCK-84 ] Producer field and producer method tests that use generics contain ambiguous definitions 			
+   * [ CDITCK-86 ] Decorators must implement decorated interfaces 			
+   * [ CDITCK-87 ] Decorator bean must implement javax.enterprise.inject.spi.Decorator, but may implement a subinterface 			
+   * [ CDITCK-89 ] TCK on Policy Tests 			
+   * [ CDITCK-99 ] Decorator Error 			
+   * [ CDITCK-101 ] /WebProfileMethodSelector Does not work 			
+   * [ CDITCK-102 ] org.jboss.jsr299.tck.tests.context.dependent.TransactionalInterceptor has incorrect postconstructor interceptor definition 			
+   * [ CDITCK-103 ] tld's don't conform to strict schema 			
+   * [ CDITCK-104 ] Writing null to a response header isn't guaranteed to add it to the response 			
+   * [ CDITCK-105 ] Signature of BeforeBeanDiscovery.addInterceptorBinding() is wrong in sig test 			
+   * [ CDITCK-106 ] ConversationScoped is missing @InheritedAnnotation in sig tests 			
+   * [ CDITCK-108 ] testApplicationScopeActiveDuringCallToEjbTimeoutMethod TCK test relies on threads sleeping 			
+   * [ CDITCK-109 ] Rewrite all conversation tests to be remote JSF tests 			
+   * [ CDITCK-110 ] Account for NonexistentConversationException 			
+   * [ CDITCK-111 ] Session bean org.jboss.jsr299.tck.tests.implementation.enterprise.newBean.Fox has non-static producer field 			
+   * [ CDITCK-120 ] Seems a bug in DependentContextTest 			
+   * [ CDITCK-134 ] Decorator not applied to a passivation capable bean 			
+   * [ CDITCK-135 ] org.jboss.jsr299.tck.tests.context.dependent.TransactionalInterceptor violates 9.2 			
+   * [ CDITCK-136 ] QualifierDefinitionTest.testDefaultQualifierForInjectionPoint() doesn't test qualifiers for Injection points. 			
+   * [ CDITCK-139 ] DecoratorResolutionTest#testDelegateTypeVariableBeanTypeVariable Error 			
+   * [ CDITCK-140 ] TCK uses cyclic @PostConstruct calls which is forbidden by JSR-250 			
+   * [ CDITCK-141 ] org.jboss.jsr299.tck.tests.implementation.simple.resource.resource.InjectionOfResourceTest should use java:comp/BeanManager 			
+   * [ CDITCK-142 ] Bug in DependentContextTest 			
+   * [ CDITCK-143 ] Bug in SimpleBeanLifecycleTest 			
+   * [ CDITCK-145 ] Circular Exceptions in CircularDependencyTest 			
+   * [ CDITCK-149 ] Bug in org.jboss.jsr299.tck.tests.context.NormalContextTest 			
+   * [ CDITCK-150 ]  TCK Test Failure: IllegalArg Exceptions - Invalid Ejb Jar 			
+   * [ CDITCK-153 ] TCK Test FAilure: IllegalStateException: Unable to convert ejbRef 			
+   * [ CDITCK-155 ] TCK Test Failure: Assertion Error: RequestContext Destroyed After EJB Timeout Ends 			
+   * [ CDITCK-156 ] TCK Test Failure: Assertion Error: Test That Application Context Is Shared 			
+   * [ CDITCK-157 ] TCK Test Failure: Assertion Error: Test For Active Request Scope During EJB Timeout 			
+   * [ CDITCK-161 ] Test Fails With IllegalAccessError:org.jboss.jsr299.tck.tests.implementation.enterprise.definition.EnterpriseBeanDefinitionTest.testConstructorAnnotatedInjectCalled 			
+   * [ CDITCK-162 ] Assumption of equals is too strong 			
+   * [ CDITCK-163 ] Incorrect assumption of hascode behavior 			
+   * [ CDITCK-164 ] org.jboss.jsr299.tck.tests.implementation.enterprise.newBean.SimpleBean is a package protected class, but appears on a public interface 			
+   * [ CDITCK-165 ] Bug in org.jboss.jsr299.tck.tests.context.NormalContextTest # testSameNormalScopeBeanInjectedEverywhere 			
+   * [ CDITCK-168 ] extensions.processBean.ProcessBean event count issue 			
+   * [ CDITCK-169 ] PersistenceContextInjectionTest is using an invalid isOpen() call 			
+   * [ CDITCK-170 ] TransactionalObserversTest uses bean managed transactions and cannot test propagation 			
+   * [ CDITCK-171 ] Tests using JSF components must include JSF metadata  			
+   * [ CDITCK-175 ] Tests from org.jboss.jsr299.tck.tests.interceptors.definition.broken.finalClassInterceptor should be separated 			
+   * [ CDITCK-177 ] EnterpriseBeanNotDiscoveredAsManagedBeanTest is invalid 			
+   * [ CDITCK-178 ] DecoratorDefinitionTest.testDecoratedTypes() asserts that a superinterface of the decorator bean class is not a decorated type. 			
+   * [ CDITCK-182 ] Challenging the expected behaviour of SessionBeanPolicyTest in a hierarchical deployment 			
+   * [ CDITCK-187 ] org.jboss.jsr299.tck.tests.lookup.injection.non.contextual.ContainerEventTest Bug 			
+   * [ CDITCK-189 ] org.jboss.jsr299.tck.tests.implementation.simple.resource.persistenceContext.PersistenceContextInjectionTest persistence.xml Location Bug 			
+   * [ CDITCK-191 ] double slash in Conversation test urls break redirect 			
+   * [ CDITCK-192 ] All test wars are invalid javaee artifacts since they have "Class-Path: null" manifest header 			
+   * [ CDITCK-194 ] NewSimpleBeanTest and QualifierDefinitionTest expects @New beans to be enabled that should not be 			
+   * [ CDITCK-195 ] ExplicitConstructorSessionBean must have a no-arg constructor 			
+   * [ CDITCK-196 ] DecoratorDefinitionTest FooBar does not extend Boo contrary to section 8.1.3 			
+   * [ CDITCK-198 ] Non-contextual WebService injection test fails when deploying on JBoss AS 6.0 CR1  in TCK 1.1 			
+   * [ CDITCK-200 ] web profile runs a web service test 			
+   * [ CDITCK-202 ] EnterpriseEventInheritanceTest -- incorrect assumption 			
+   * [ CDITCK-210 ] org.jboss.jsr299.tck.tests.implementation.enterprise.definition.Pitbull (Stateful session bean) 's @Remove method not part of EJB's business interface 			
+   * [ CDITCK-212 ] DestroyedInstanceReturnedByGetTest assumes that the application scope can be destroyed and then re-created 			
+   * [ CDITCK-213 ] Interceptor classes in TCK do not follow the Interceptor spec 			
+   * [ CDITCK-217 ] InjectionIntoWebServiceEndpoint test uses hard-coded HTTP port 			
+   * [ CDITCK-219 ] SessionContextTest.testSessionContextDestroyedWhenHttpSessionTimesOut uses too short of a sleep delay time 			
+   * [ CDITCK-220 ] BuiltInBeansTest.testUserTransactionBean() 			
+   * [ CDITCK-221 ] Synchronization bug in test<X>ScopeActiveDuringCallToEjbTimeoutMethod tests 			
+   * [ CDITCK-222 ] Typos in documentation 			
+   * [ CDITCK-223 ] EnterpriseBeanLifecycleTest.testCreateSFSB 			
+   * [ CDITCK-224 ] Missing injection points for CircularDependencyTest 			
+   * [ CDITCK-225 ] TCK needs a sig file recorded with Java SE 7 			
+   * [ CDITCK-231 ] Fix ProducerMethodDefinitionTest.testNonStaticProducerMethodInheritedBySpecializingSubclass() to align with spec 			
+   * [ CDITCK-232 ] Fix org.jboss.jsr299.tck.tests.event.fires.FireEventTest.testTypeVariableEventTypeFails() to align with spec 			
+   * [ CDITCK-249 ] Incorrect specialization in org.jboss.jsr299.tck.tests.inheritance.specialization.enterprise.EnterpriseBeanSpecializationTest 			
+   * [ CDITCK-250 ] Tests for @New session beans do not have @New injection points 			
+   * [ CDITCK-263 ] UnproxyableManagedBeanTest should test runtime exception 			
+   * [ CDITCK-264 ] EnterpriseProducerMethodDefinitionTest.testNonStaticProducerMethodInheritedBySpecializingSubclass() broken 			
+   * [ CDITCK-265 ] ProducerFieldLifecycleTest broken 			
+   * [ CDITCK-270 ] TransactionalObserverTest.testSucessfullTransaction() unstable 			
+   * [ CDITCK-274 ] CreateInjectionPointTest.testInvalidParameter() too strict 			
+   * [ CDITCK-279 ] Ordering issue in CustomTransactionalObserverTest 			
+   * [ CDITCK-295 ] Built-in bean Principal cannot be decorated 			
+   * [ CDITCK-291 ] NonPassivatingInjectionIntoPassivatingBeanTest uses session bean without public constructor that takes no parameters 			
+   * [ CDITCK-294 ] Fix deployment methods in Bean metadata tests 			
+   * [ CDITCK-296 ] Fix BuiltinInstanceDecoratorTest to align with the spec 			
+   * [ CDITCK-298 ] Fix Servlet AsyncListener tests 			
+   * [ CDITCK-305 ] Modify EnterpriseArchiveModulesTest to align with the EE spec visibility rules 			
+   * [ CDITCK-313 ] Section 6.7.2 - Session context lifecycle, "HttpSessionListener, AsyncListener or ServletRequestListener." not covered 			
+   * [ CDITCK-316 ] Add required version attribute to all relevant descriptors 			
+   * [ CDITCK-326 ] SpecializedProducerMethodInjectionNotAvailableTest 			
+   * [ CDITCK-328 ] EnterpriseBeanDiscoveryTest broken 			
+   * [ CDITCK-332 ] Remove test for interceptor that is not deployed in any bean archive 			
+   * [ CDITCK-335 ] org.jboss.cdi.tck.tests.definition.bean.custom.IntegerBean should implement PassivationCapable 			
+
+** Task
+   * [ CDITCK-50 ] Ensure that  /doc/META-INF directory won't be part of TCK distro 			
+   * [ CDITCK-98 ] Fix <scm> so that release plugin transforms properly 			
+   * [ CDITCK-115 ] Interceptors spec audit and coverage report missing in the distribution 			
+   * [ CDITCK-119 ] Documentation issues 			
+   * [ CDITCK-209 ] TCK tests should not cleanup app context explicitly 			
+   * [ CDITCK-226 ] Update CDI TCK release notes 			
+   * [ CDITCK-229 ] Migrate 1.1 branch to use Arquillian 			
+   * [ CDITCK-253 ] Coverage for MessageDriven Beans 			
+   * [ CDITCK-261 ] Update CDI TCK documentation 			
+   * [ CDITCK-272 ] Revise tests for inheritance of member-level metadata for generic types 			
+   * [ CDITCK-283 ] Specify runtime configuration requirements (Java EE resources, installed libraries, etc.) 			
+   * [ CDITCK-299 ] Remove all tests for BeanAttributes.isNullable() 			
+   * [ CDITCK-300 ] Switch from number-based section ids to unique ids defined in the spec 			
+   * [ CDITCK-301 ] Event type may contain a resolvable type variable 			
+   * [ CDITCK-302 ] Update @WithAnnotations tests to consider annotations on superclasses 			
+   * [ CDITCK-303 ] Remove ObserverMethod.notify(T event, Set<Annotation> qualifiers) test 			
+   * [ CDITCK-304 ] Modify @WithAnnotations tests for meta-annotations 			
+   * [ CDITCK-306 ] Remove ProcessModule.getAnnotatedTypes() test 			
+   * [ CDITCK-308 ] Add missing tests for ProcessAnnotatedType event 			
+   * [ CDITCK-311 ] Align the tests for unproxyable bean types with the current wording of the spec 			
+   * [ CDITCK-312 ] Complete the tests for BeanManager#resolve() 			
+   * [ CDITCK-315 ] Use destinationLookup activation config property to set JMS message-driven bean destination 			
+   * [ CDITCK-319 ] Incorporate CDI conversation filter feature 			
+   * [ CDITCK-320 ] Test that certain BeanManager methods cannot be called during application init 			
+   * [ CDITCK-322 ] Review ambiguous dependency assertions and test with respect of CDI-334 			
+   * [ CDITCK-323 ] Create tests for AfterTypeDiscovery event 			
+   * [ CDITCK-324 ] Create tests for exclude filters 			
+   * [ CDITCK-325 ] Make sure JCP schemas are used in xml descriptors 			
+   * [ CDITCK-327 ] Add tests for @Stateful(passivationCapable = false) 			
+   * [ CDITCK-333 ] Revert CDI-271 tests 			
+   * [ CDITCK-334 ] Verify all tests using JNDI lookups are portable 			
+
+Known Issues
+-------------
+
+* Verify all JAX-WS-related tests are portable: https://issues.jboss.org/browse/CDITCK-310
+
+----------------
+* 1.1.0.Alpha1 *
+----------------
+
+Known Issues
+-------------
+
+* Outdated documentation
+
+-------------
+* 1.0.2.CR1 *
+-------------
+
+Known Issues
+-------------
+
+* You must use the JBoss AS Snapshot () to run the TCK incontainer as described in 
+  Chapter 7, Section 3.
+* You must add the JBoss Maven repository to your ~/.m2/settings.xml to run the 
+  TCK as described in Chapter 7, Section 2.
+
+<settings>
+   
+   <!-- Existing contents of settings.xml -->
+   
+   <profiles>
+      <profile>
+         <id>jboss-public-repository</id>
+         <activation>
+            <property>
+               <name>jboss-public-repository</name>
+               <value>!false</value>
+            </property>
+         </activation>
+         <repositories>
+            <repository>
+               <id>jboss-public-repository-group</id>
+               <name>JBoss Public Maven Repository Group</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>
+               <releases>
+                  <enabled>true</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </snapshots>
+            </repository>
+         </repositories>
+         <pluginRepositories>
+            <pluginRepository>
+               <id>jboss-public-repository-group</id>
+               <name>JBoss Public Maven Repository Group</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>
+               <releases>
+                  <enabled>true</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </snapshots>
+            </pluginRepository>
+         </pluginRepositories>
+      </profile>
+
+   </profiles>
+   
+</settings>
+
