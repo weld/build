@@ -4,4 +4,5 @@
      "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
 <suppressions>
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]logging[\\/].*Logger.java" />
+  <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]environment[\\/]se[\\/]logging[\\/].*Logger.java" />
 </suppressions>
