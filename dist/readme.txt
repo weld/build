@@ -4,26 +4,17 @@
  What is it?
  ============
 
- Weld is the reference implementation of Java Contents and
- Dependency Injection for the Java EE platform (CDI). CDI is the new Java
- standard for dependency injection and contextual lifecycle management.
+ Weld is the reference implementation of CDI: Contexts and Dependency Injection 
+ for the Java EE Platform which is the Java standard for dependency injection and 
+ contextual lifecycle management and one of the most important and popular parts 
+ of the Java EE platform.
 
- System requirements
- ===================
-
- Weld examples require either a Java EE 6 application server or better,
- a servlet container (using the Weld servlet extension) and Java SE
- (using the Weld Java SE extension). In fact, through extensions, Weld
- can accomodate any Java environment.
+ Weld is integrated into many Java EE application servers such as WildFly, 
+ JBoss Enterprise Application Platform, GlassFish, Oracle WebLogic and others. 
+ Weld can also be used in a Servlet-only environment (Tomcat, Jetty) or plain 
+ Java SE environment.
  
- Currently, you must use JBoss AS 7 or above to deploy the provided examples
- out of the box. Check http://weld.cdi-spec.org/download/ to find the
- correct JBoss AS download for your Weld version. Marked examples, which do not
- include EJB session beans, can also be deployed to Apache Tomcat 6 or Jetty 6.
- Weld examples also work on GlassFish V3, build the artifacts using mvn install
- and deploy.
-
- JDK 6.0 or better is required for all Weld releases.
+ See http://weld.cdi-spec.org for more details.
 
  Contents of distribution
  ========================
@@ -33,12 +24,12 @@
     API Docs and reference guide. Open doc/en-US/html/index.html in your
     browser for instructions on how to get started using Weld and the
     facilities offered by CDI. 
-   
+
  examples/
 
-    The Weld examples, the examples are described in more detail in the 
-    reference guide 
-     
+    The Weld examples. See examples/README.md for more details. In addition, 
+    the examples are described in more detail in the reference guide
+
  artifacts/weld
 
     Weld binary, source and javadoc jars
