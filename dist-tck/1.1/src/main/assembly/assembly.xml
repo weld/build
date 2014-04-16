@@ -6,7 +6,7 @@
    <formats>
       <format>zip</format>
    </formats>
-   
+
    <fileSets>
       <fileSet>
          <directory>${project.basedir}</directory>
@@ -14,8 +14,10 @@
          <includes>
             <include>readme.txt</include>
             <include>apl.txt</include>
-            <include>release-notes.txt</include>
-            <include>dd-override-report.txt</include>
+            <!-- We don't deliver this file anymore  -->
+            <!--include>release-notes.txt</include-->
+            <!-- Unused since 1.1.x -->
+            <!--include>dd-override-report.txt</include-->
          </includes>
       </fileSet>
    </fileSets>
