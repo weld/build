@@ -9,7 +9,7 @@
 
     <groupId>org.jboss.weld</groupId>
     <artifactId>weld-common-build-config</artifactId>
-    <version>6-SNAPSHOT</version>
+    <version>6</version>
     <name>Weld: Common Build Configuration</name>
 
     <build>
@@ -27,6 +27,7 @@
         <connection>scm:git:git@github.com:weld/build.git</connection>
         <developerConnection>scm:git:git@github.com:weld/build.git</developerConnection>
         <url>scm:git:git@github.com:weld/build.git</url>
-    </scm>
+      <tag>6</tag>
+  </scm>
 
 </project>
