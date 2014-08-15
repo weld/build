@@ -3,6 +3,10 @@
      "-//Puppy Crawl//DTD Suppressions 1.0//EN"
      "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
 <suppressions>
+  <!-- 
+    Loggers use magic numbers to define message ids. Suppress magic number check on every *Logger class in a package 
+    named "logging" that is a direct or indirect subpackage of org.jboss.weld 
+  -->
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]logging[\\/].*Logger.java" />
-  <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]environment[\\/]se[\\/]logging[\\/].*Logger.java" />
+  <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/].*[\\/]logging[\\/].*Logger.java" />
 </suppressions>
