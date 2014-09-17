@@ -133,6 +133,14 @@
       </dependency>
       <dependency>
          <groupId>org.jboss.cdi.tck</groupId>
+         <artifactId>cdi-tck-impl</artifactId>
+         <version>${cdi.tck.version}</version>
+         <classifier>sigtest-jdk8</classifier>
+         <type>sig</type>
+         <optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.cdi.tck</groupId>
          <artifactId>cdi-tck-dist-porting-package</artifactId>
          <version>${project.version}</version>
          <type>zip</type>
