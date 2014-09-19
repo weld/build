@@ -68,7 +68,13 @@
         <module name="PackageAnnotation"/>
         <module name="ArrayTypeStyle"/>
 
+        <!-- Inline suppression -->
+        <module name="SuppressWarningsHolder" />
+
     </module>
+
+    <module name="SuppressWarningsFilter" />
+    <module name="SuppressionCommentFilter"/>
 
 </module>
 
