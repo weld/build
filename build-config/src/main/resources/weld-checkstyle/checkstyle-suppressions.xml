@@ -9,4 +9,7 @@
   -->
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]logging[\\/].*Logger.java" />
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/].*[\\/]logging[\\/].*Logger.java" />
+
+  <!-- Checkstyle does not support Java 8 constructs. Suppress checks for org.jboss.weld.experimental.Experimental*.java for now -->
+  <suppress checks=".*" files="org[\\/]jboss[\\/]weld[\\/]experimental[\\/]Experimental.*.java" />
 </suppressions>
