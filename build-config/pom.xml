@@ -22,12 +22,22 @@
         </extensions>
     </build>
 
-        <!-- SCM and distribution management -->
+    <!-- SCM and distribution management -->
     <scm>
         <connection>scm:git:git@github.com:weld/build.git</connection>
         <developerConnection>scm:git:git@github.com:weld/build.git</developerConnection>
         <url>scm:git:git@github.com:weld/build.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.4.2</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/../lib/tools.jar</systemPath>
+        </dependency>
+    </dependencies>
 
 </project>
