@@ -64,10 +64,10 @@
 
       <artifact:dependencies filesetId="weld.fileset" versionsId="weld.versions" sourcesfilesetid="weld.sources.fileset" javadocfilesetid="weld.javadocs.fileset">
          <dependency groupId="org.jboss.weld" artifactId="weld-core" version="${weld.version}" />
-         <dependency groupId="org.jboss.weld.se" artifactId="weld-se" version="${weld.version}" />
          <dependency groupId="org.jboss.weld.se" artifactId="weld-se-core" version="${weld.version}" />
-         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet" version="${weld.version}" />
+         <dependency groupId="org.jboss.weld.se" artifactId="weld-se-shaded" version="${weld.version}" />
          <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-core" version="${weld.version}" />
+         <dependency groupId="org.jboss.weld.servlet" artifactId="weld-servlet-shaded" version="${weld.version}" />
          <remoteRepository id="repository.jboss.org" url="https://repository.jboss.org/nexus/content/groups/public/" />
       </artifact:dependencies>
 
