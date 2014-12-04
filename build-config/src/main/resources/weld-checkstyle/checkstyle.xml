@@ -5,76 +5,79 @@
 
 <module name="Checker">
     <module name="FileTabCharacter">
-        <property name="eachLine" value="true"/>
+        <property name="eachLine" value="true" />
     </module>
 
     <module name="RegexpSingleline">
         <!-- \s matches whitespace character, $ matches end of line. -->
-        <property name="format" value="\s+$"/>
-        <property name="message" value="Line has trailing spaces."/>
+        <property name="format" value="\s+$" />
+        <property name="message" value="Line has trailing spaces." />
     </module>
 
     <module name="TreeWalker">
+        <!-- Needed for inline suppressions -->
+        <module name="FileContentsHolder" />
 
-        <property name="cacheFile" value="${checkstyle.cache.file}"/>
+        <property name="cacheFile" value="${checkstyle.cache.file}" />
 
-        <!-- Checks for imports                              -->
-        <module name="AvoidStarImport"/>
-        <module name="RedundantImport"/>
-        <!-- Disabled until checkstyle can recognize imports which are used only by javadoc -->
+        <!-- Checks for imports -->
+        <module name="AvoidStarImport" />
+        <module name="RedundantImport" />
+        <!-- Disabled until checkstyle can recognize imports which are used 
+            only by javadoc -->
         <module name="UnusedImports">
-            <property name="processJavadoc" value="true"/>
+            <property name="processJavadoc" value="true" />
         </module>
 
-        <!-- Modifier Checks                                    -->
-        <module name="ModifierOrder"/>
-        <module name="RedundantModifier"/>
+        <!-- Modifier Checks -->
+        <module name="ModifierOrder" />
+        <module name="RedundantModifier" />
 
-        <!-- Checks for blocks. You know, those {}'s         -->
-        <module name="LeftCurly"/>
-	<module name="NeedBraces"/>
+        <!-- Checks for blocks. You know, those {}'s -->
+        <module name="LeftCurly" />
+        <module name="NeedBraces" />
 
-        <!-- Checks for common coding problems               -->
-        <module name="CovariantEquals"/>
-        <!-- Disabled until http://sourceforge.net/tracker/?func=detail&aid=2843447&group_id=29721&atid=397078 is fixed-->
-        <!--<module name="DoubleCheckedLocking"/>-->
-        <module name="EmptyStatement"/>
-        <module name="EqualsHashCode"/>
-        <module name="IllegalInstantiation"/>
-	<module name="MagicNumber">
-	    <property name="ignoreHashCodeMethod" value="true"/>
-	</module>
-        <module name="MissingSwitchDefault"/>
+        <!-- Checks for common coding problems -->
+        <module name="CovariantEquals" />
+        <!-- Disabled until http://sourceforge.net/tracker/?func=detail&aid=2843447&group_id=29721&atid=397078 
+            is fixed -->
+        <!--<module name="DoubleCheckedLocking"/> -->
+        <module name="EmptyStatement" />
+        <module name="EqualsHashCode" />
+        <module name="IllegalInstantiation" />
+        <module name="MagicNumber">
+            <property name="ignoreHashCodeMethod" value="true" />
+            <property name="ignoreNumbers" value="-1, 0, 1, 2, 3"/>
+        </module>
+        <module name="MissingSwitchDefault" />
         <module name="RedundantThrows">
-            <property name="allowUnchecked" value="true"/>
+            <property name="allowUnchecked" value="true" />
         </module>
-        <module name="SimplifyBooleanExpression"/>
-        <module name="SimplifyBooleanReturn"/>
-        <module name="StringLiteralEquality"/>
-        <module name="DefaultComesLast"/>
-        <module name="FallThrough"/>
+        <module name="SimplifyBooleanExpression" />
+        <module name="SimplifyBooleanReturn" />
+        <module name="StringLiteralEquality" />
+        <module name="DefaultComesLast" />
+        <module name="FallThrough" />
         <module name="MultipleStringLiterals">
-	    <!-- strings of length 0 and 1 are allowed to repeat within single java class-->
-	    <property name="ignoreStringsRegexp" value='^".{0,1}"$'/>
-	</module>
+            <!-- strings of length 0 and 1 are allowed to repeat within single 
+                java class -->
+            <property name="ignoreStringsRegexp" value='^".{0,1}"$' />
+        </module>
 
 
-	<!-- Checks for class design				-->
-	<module name="HideUtilityClassConstructor"/>
-	<module name="MutableException"/>
+        <!-- Checks for class design -->
+        <module name="HideUtilityClassConstructor" />
+        <module name="MutableException" />
 
-        <!-- Miscellaneous other checks.                   -->
-        <module name="UpperEll"/>
-        <module name="PackageAnnotation"/>
-        <module name="ArrayTypeStyle"/>
+        <!-- Miscellaneous other checks. -->
+        <module name="UpperEll" />
+        <module name="PackageAnnotation" />
+        <module name="ArrayTypeStyle" />
 
         <!-- Inline suppression -->
         <module name="SuppressWarningsHolder" />
-
     </module>
-
     <module name="SuppressWarningsFilter" />
-    <module name="SuppressionCommentFilter"/>
-
+    <module name="SuppressionCommentFilter" />
 </module>
 
