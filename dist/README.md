@@ -5,7 +5,7 @@ Weld
 What is it?
 ------------
 
-Weld is the reference implementation of CDI: Contexts and Dependency Injection 
+{CUSTOM_TEXT}: Contexts and Dependency Injection
 for the Java EE Platform which is the Java standard for dependency injection and 
 contextual lifecycle management and one of the most important and popular parts 
 of the Java EE platform.
