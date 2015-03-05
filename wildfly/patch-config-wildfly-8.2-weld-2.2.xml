@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<patch-config xmlns="urn:jboss:patch-config:1.0">
+    <name>wildfly-8.2-weld-2.2</name>
+    <description>This patch upgrades Weld to latest 2.2.x releas within WildFly 8.2 installation</description>
+    <one-off />
+    <element patch-id="layer-base-wildfly-8.2-weld-2.2">
+        <one-off name="base" />
+        <description>This patch upgrades Weld to latest 2.2.x releas within WildFly 8.2 installation</description>
+        <specified-content>
+            <modules>
+                <updated name="org.jboss.as.jsf-injection" />
+                <updated name="org.jboss.weld.api" />
+                <updated name="org.jboss.weld.core" />
+                <updated name="org.jboss.weld.spi" />
+            </modules>
+        </specified-content>
+    </element>
+    <specified-content/>
+</patch-config>
