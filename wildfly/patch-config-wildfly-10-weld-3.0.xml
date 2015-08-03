@@ -14,6 +14,7 @@
                 <updated name="org.jboss.weld.core" />
                 <updated name="org.jboss.weld.probe" />
                 <updated name="org.jboss.weld.spi" />
+                <updated name="javax.enterprise.api" />
             </modules>
         </specified-content>
     </element>
