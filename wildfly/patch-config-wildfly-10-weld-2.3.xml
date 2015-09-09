@@ -11,6 +11,7 @@
                 <updated name="org.jboss.as.jsf-injection" />
                 <updated name="org.jboss.weld.api" />
                 <updated name="org.jboss.weld.core" />
+                <updated name="org.jboss.weld.probe" />
                 <updated name="org.jboss.weld.spi" />
             </modules>
         </specified-content>
