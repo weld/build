@@ -31,7 +31,6 @@
 
         <!-- Modifier Checks -->
         <module name="ModifierOrder" />
-        <module name="RedundantModifier" />
 
         <!-- Checks for blocks. You know, those {}'s -->
         <module name="LeftCurly" />
@@ -50,9 +49,6 @@
             <property name="ignoreNumbers" value="-1, 0, 1, 2, 3"/>
         </module>
         <module name="MissingSwitchDefault" />
-        <module name="RedundantThrows">
-            <property name="allowUnchecked" value="true" />
-        </module>
         <module name="SimplifyBooleanExpression" />
         <module name="SimplifyBooleanReturn" />
         <module name="StringLiteralEquality" />
