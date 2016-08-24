@@ -9,4 +9,7 @@
   -->
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/]logging[\\/].*Logger.java" />
   <suppress checks="MagicNumberCheck" files="org[\\/]jboss[\\/]weld[\\/].*[\\/]logging[\\/].*Logger.java" />
+  <!--Do not check generated logger files-->
+  <suppress checks="[a-zA-Z0-9]" files="org[\\/]jboss[\\/]weld[\\/].*logging[\\/].*\_\$logger.java" />
+  <suppress checks="[a-zA-Z0-9]" files="org[\\/]jboss[\\/]weld[\\/]probe[\\/].*\_\$logger.java" />
 </suppressions>
