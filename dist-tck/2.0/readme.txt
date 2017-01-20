@@ -1,7 +1,7 @@
 CDI TCK
 ------------
 
-Contexts and Dependency Injection (CDI) for Java EE (JSR-299, JSR-346) is a Java standard for
+Contexts and Dependency Injection (CDI) for Java 2.0 (JSR-365) is a Java standard for
 dependency injection and contextual lifecycle management. This is the TCK for CDI.
 
 This distribution, as a whole, is licensed under the terms of the Apache Public
@@ -30,7 +30,7 @@ weld/
    -- TCK runner for using Weld (the CDI RI) with JBoss AS
 
    jboss-tck-runner/
-      -- maven-based TCK runner for WildFly 8
+      -- maven-based TCK runner for WildFly 10
 
    porting-package-lib/
       -- Maven project to get all Weld Porting Package dependencies
