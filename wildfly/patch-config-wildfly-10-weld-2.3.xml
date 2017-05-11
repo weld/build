@@ -16,4 +16,5 @@
             </modules>
         </specified-content>
     </element>
+    <specified-content/>
 </patch-config>
