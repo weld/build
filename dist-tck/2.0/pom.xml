@@ -111,7 +111,7 @@
          <groupId>org.jboss.cdi.tck</groupId>
          <artifactId>cdi-tck-impl</artifactId>
          <version>${cdi.tck.version}</version>
-         <classifier>coverage-int</classifier>
+         <classifier>coverage-interceptors</classifier>
          <type>html</type>
          <optional>true</optional>
       </dependency>
