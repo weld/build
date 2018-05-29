@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<patch-config xmlns="urn:jboss:patch-config:1.0">
+    <name>wildfly-12-weld-3.0</name>
+    <description>This patch upgrades Weld to 3.0 within WildFly installation</description>
+    <one-off />
+    <element patch-id="layer-base-wildfly-12-weld-3.0">
+        <one-off name="base" />
+        <description>This patch upgrades Weld to 3.0 within WildFly installation</description>
+        <specified-content>
+            <modules>
+                <updated name="org.jboss.as.jsf-injection" />
+                <updated name="org.jboss.as.weld" />
+                <updated name="org.jboss.as.weld.beanvalidation" />
+                <updated name="org.jboss.as.weld.common" />
+                <updated name="org.jboss.as.weld.ejb" />
+                <updated name="org.jboss.as.weld.jpa" />
+                <updated name="org.jboss.as.weld.spi" />
+                <updated name="org.jboss.as.weld.transactions" />
+                <updated name="org.jboss.as.weld.webservices" />
+                <updated name="org.jboss.weld.api" />
+                <updated name="org.jboss.weld.core" />
+                <updated name="org.jboss.weld.probe" />
+                <updated name="org.jboss.weld.spi" />
+                <updated name="javax.enterprise.api" />
+                <updated name="javax.annotation.api" />
+            </modules>
+        </specified-content>
+    </element>
+    <specified-content/>
+</patch-config>
