@@ -119,22 +119,6 @@
          <groupId>org.jboss.cdi.tck</groupId>
          <artifactId>cdi-tck-impl</artifactId>
          <version>${cdi.tck.version}</version>
-         <classifier>sigtest</classifier>
-         <type>sig</type>
-         <optional>true</optional>
-      </dependency>
-      <dependency>
-         <groupId>org.jboss.cdi.tck</groupId>
-         <artifactId>cdi-tck-impl</artifactId>
-         <version>${cdi.tck.version}</version>
-         <classifier>sigtest-jdk7</classifier>
-         <type>sig</type>
-         <optional>true</optional>
-      </dependency>
-      <dependency>
-         <groupId>org.jboss.cdi.tck</groupId>
-         <artifactId>cdi-tck-impl</artifactId>
-         <version>${cdi.tck.version}</version>
          <classifier>sigtest-jdk8</classifier>
          <type>sig</type>
          <optional>true</optional>
