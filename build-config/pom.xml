@@ -4,23 +4,13 @@
     <parent>
         <groupId>org.jboss.weld</groupId>
         <artifactId>weld-parent</artifactId>
-        <version>35</version>
+        <version>40-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.weld</groupId>
     <artifactId>weld-common-build-config</artifactId>
     <version>12-SNAPSHOT</version>
     <name>Weld: Common Build Configuration</name>
-
-    <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav-jackrabbit</artifactId>
-                <version>1.0-beta-7</version>
-            </extension>
-        </extensions>
-    </build>
 
     <!-- SCM and distribution management -->
     <scm>
@@ -29,27 +19,5 @@
         <url>scm:git:git@github.com:weld/build.git</url>
         <tag>HEAD</tag>
     </scm>
-
-    <profiles>
-        <profile>
-            <id>default-tools.jar-oracle</id>
-            <activation>
-                <property>
-                    <name>java.vendor</name>
-                    <value>Oracle Corporation</value>
-                </property>
-                <jdk>[,1.9)</jdk>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>com.sun</groupId>
-                    <artifactId>tools</artifactId>
-                    <version>1.4.2</version>
-                    <scope>system</scope>
-                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
 
 </project>
